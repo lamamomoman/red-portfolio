@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+:root{
+    --largest-heading-size: 200px;
+    --large-heading-size: 100px;
+    --regular-heading-size: 60px;
+    --small-heading-size: 30px;
+
+    --sixty-four-font: 'Sixtyfour'
+}

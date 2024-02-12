@@ -1,0 +1,32 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+#intro-page-wrapper{
+  width: 100vw;
+  height: 300vh;
+}
+
+#intro-page-wrapper #intro-page1, #intro-page2{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid red;
+}
+
+#intro-page-wrapper .large-headings{
+  font-size: 150px;
+  font-family: 'Raleway';
+  font-size: 800;
+  position: relative;
+  border: 2px solid red;
+}
+
+.words-split .letter{
+  font-size: 200px;
+  position: relative;
+}
