@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&display=swap');
 
 :root{
     --largest-heading-size: 200px;
@@ -7,5 +9,14 @@
     --regular-heading-size: 60px;
     --small-heading-size: 30px;
 
-    --sixty-four-font: 'Sixtyfour'
+    --p-regular: 1.2rem;
+
+    --sixty-four-font: 'Sixtyfour';
+
+    --container-padding: 0 10em;
+
+    --p-color: #F8F9FA;
+    --heading-color: #E9ECEF;
+    --main-bg-color: '';
+    --secondary-bg-color: #ADB5BD;
 }

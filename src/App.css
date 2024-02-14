@@ -3,30 +3,92 @@
   margin: 0;
 }
 
+#app{
+  position: relative;
+  height: auto;
+  width: 100vw;
+  box-sizing: border-box;
+}
 
 #intro-page-wrapper{
+  position: relative;
   width: 100vw;
-  height: 300vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: var(--container-padding);
 }
 
-#intro-page-wrapper #intro-page1, #intro-page2{
-  height: 100vh;
+#line-wrapper{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: -1;
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid red;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
-#intro-page-wrapper .large-headings{
-  font-size: 150px;
-  font-family: 'Raleway';
-  font-size: 800;
-  position: relative;
-  border: 2px solid red;
+#line-wrapper .line{
+  background-color: var(--secondary-bg-color);
 }
 
-.words-split .letter{
-  font-size: 200px;
+#intro-page-wrapper #intro-page{
   position: relative;
+  height: 200vh;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+}
+
+#intro-page-wrapper #intro-page #intro-page-heading{
+  flex: 0.7;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  text-align: left;
+}
+
+#intro-page-wrapper #intro-page #intro-page-content{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  align-items: flex-end;
+  font-size: var(--p-regular);
+  scroll-snap-type: mandatory;
+}
+
+#intro-page-wrapper #intro-page #intro-page-content p{
+  scroll-snap-align: start;
+  width: 50%;
+  font-family: 'Roboto Slab';
+  color: var(--p-color);
+  word-spacing: 5px;
+  font-weight: 400;
+  text-align: left;
+}
+
+#intro-page-wrapper .letter{
+  position: relative;
+  font-family: 'Fraunces';
+  font-size: 300px;
+  font-weight: 500;
+  line-height: 0.6em;
+}
+
+#intro-page-wrapper .fade-in{
+  position: relative;
+}
+
+#about-me-wrapper{
+  height: 200vh;
+  padding: var(--container-padding);
 }
