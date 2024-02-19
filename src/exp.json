@@ -1,0 +1,136 @@
+{
+    "exp": [
+        {
+            "company": "Black Rocket LLC",
+            "job": "Lead Instructor",
+            "location": "NJ, United States",
+            "timeline": "June 2023 - Aug 2023"
+        },
+        {
+            "company": "Greedy Game",
+            "job": "Unity Game Developer",
+            "location": "Bangalore, India",
+            "timeline": "Jan 2022 - July 2022"
+        },
+        {
+            "company": "Speeve",
+            "job": "Full Stack Developer",
+            "location": "Bangalore, India",
+            "timeline": "Nov 2020 - Dec 2021"
+        }
+    ],
+    "projects": [
+        {
+            "projectTitle": "Book Exchange Club Web app and API",
+            "projectBrief": "The BEC web app serves as a centralized hub for book readers who are willing to exchange books they have already read. It offers a user-friendly interface that allows members to list the books they possess and are willing to exchange. By doing so, they can browse through the available titles and find books of interest that other members are offering in return. The platform is built with a focus on convenience, fostering a vibrant community of avid readers who can engage in mutually beneficial book exchanges. Members can search for specific titles, authors, or genres to find suitable matches and initiate exchange requests directly with other users. Through its well-structured API, the BEC platform efficiently retrieves comprehensive information about books, such as title, author, description, cover image, and other relevant details. This ensures that users can make informed decisions when selecting books for exchange.\n The Book Exchange Club aims to foster a sense of camaraderie among book enthusiasts while promoting sustainable practices and minimizing the need for new book purchases. By facilitating book swaps, the platform not only encourages reading but also contributes to reducing environmental impact and promoting the circular economy within the literary community. The security and privacy of members are paramount, and the platform implements robust authentication and authorization mechanisms to ensure a safe and trustworthy environment. Additionally, personal information is handled with utmost care and complies with all relevant data protection regulations.\nOverall, the Book Exchange Club web app serves as a valuable resource for book lovers seeking to diversify their reading list while connecting with like-minded individuals in a purposeful and altruistic manner.",
+            "projectInfo": "The Book Exchange Club web application is a platform designed to facilitate the exchange of books between individuals without the need for monetary transactions. The platform leverages a custom-built public API, powered by Python Flask, to gather all the required information for specific books and store it in the form of JSON.",
+            "projectSkills": [
+                "React |",
+                " React |",
+                " React |",
+                " React |",
+                " React |",
+                " React |",
+                " React |",
+                " React |",
+                " React |"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectTitle": "Speeve",
+            "projectBrief": "Project Brief",
+            "projectInfo": "Introducing Speeve - A Cutting-Edge Web and Mobile Application Developed with ReactJS and React Native. Speeve, a dynamic start-up company, has set its sights on revolutionizing the way we connect and interact through its innovative web and mobile applications. Meticulously crafted using industry-leading technologies, Speeve's web-app and mobile app redefine user experiences with the seamless integration of ReactJS and React Native, respectively.",
+            "projectSkills": [
+                "React\n",
+                "React Spring\n",
+                "Redux\n",
+                "Firebase\n",
+                "Html\n",
+                "CSS\n",
+                "Javascript\n",
+                "JSX\n",
+                "Python\n",
+                "Flask\n",
+                "Heroku\n"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectTitle": "The Biker Gang",
+            "projectBrief": "Project Brief",
+            "projectInfo": "Introducing \"The Biker Gang\" - Your Concept Site for Effortless Online Bike Purchases, Powered by Firebase. The Biker Gang is a personal project, thoughtfully crafted to revolutionize the way bike enthusiasts shop for their dream rides online. With its user-friendly interface and advanced technology stack, The Biker Gang offers a seamless shopping experience, enabling users to explore an extensive collection of bike models, specifications, and availability. Leveraging the power of Firebase Authentication, users can effortlessly log in using various methods, ensuring privacy and ease of access. ",
+            "projectSkills": [
+                "React\n",
+                "React Spring\n",
+                "Redux\n",
+                "Firebase\n",
+                "Html\n",
+                "CSS\n",
+                "Javascript\n",
+                "JSX\n",
+                "Python\n",
+                "Flask\n",
+                "Heroku\n"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectTitle": "EMS - Employee Management System",
+            "projectBrief": "Project Brief",
+            "projectInfo": "This exceptional website was conceived and brought to life during an exhilarating hackathon hosted on HackerEarth.com. The challenge posed to the participants was to design and develop a dynamic web app that would empower project managers and higher authorities to enhance their employee management capabilities. The result: a groundbreaking web application that revolutionizes the way leaves, holidays, attendance, and project teams are managed. Crafted with precision and passion, this web app boasts an array of powerful features.",
+            "projectSkills": [
+                "React\n",
+                "React Spring\n",
+                "Redux\n",
+                "Firebase\n",
+                "Html\n",
+                "CSS\n",
+                "Javascript\n",
+                "JSX\n",
+                "Python\n",
+                "Flask\n",
+                "Heroku\n"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectTitle": "The Space Shooter",
+            "projectBrief": "Project Brief",
+            "projectInfo": "Embarked on an ambitious journey of Java mastery, I set out to build an entire game from scratch, drawing inspiration from the immensely popular game Minecraft. The main goal was to deepen my understanding of Java programming and replicate some of Minecraft's key functionalities. As the project progressed, I crafted an intricate world with block-based mechanics and immersive interactions, but I encountered challenges with implementing complex game physics. Acknowledging the limitations, I discovered the power of game engines like Unity and Unreal, prompting a strategic shift towards these industry-standard platforms. As my transition to Unity and Unreal began, I channeled my creative energy into designing a charming 8-bit spaceship.",
+            "projectSkills": [
+                "React\n",
+                "React Spring\n",
+                "Redux\n",
+                "Firebase\n",
+                "Html\n",
+                "CSS\n",
+                "Javascript\n",
+                "JSX\n",
+                "Python\n",
+                "Flask\n",
+                "Heroku\n"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectTitle": "Doggy - The python package.",
+            "projectBrief": "Project Brief",
+            "projectInfo": "Introducing \"Doggy\" - Your Dynamic Python Package for Effortless Profile Management and GitHub Repository Initialization. Doggy represents a groundbreaking advancement in Python development, providing developers with a versatile and intuitive toolset for profile creation and organization. This feature-rich Python package simplifies the process of managing file and code-editor shortcuts, allowing for seamless switching between different profiles. With Doggy, developers can effortlessly create and customize multiple profiles, tailored to specific projects or coding environments. The package enables setting up shortcuts for code editors, customizing file paths, and defining preferred configurations, empowering users to enhance productivity and streamline their development workflow.",
+            "projectSkills": [
+                "React\n",
+                "React Spring\n",
+                "Redux\n",
+                "Firebase\n",
+                "Html\n",
+                "CSS\n",
+                "Javascript\n",
+                "JSX\n",
+                "Python\n",
+                "Flask\n",
+                "Heroku\n"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        }
+    ]
+}
