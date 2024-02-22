@@ -21,114 +21,112 @@
     ],
     "projects": [
         {
+            "projectImage": "",
             "projectTitle": "Book Exchange Club Web app and API",
             "projectBrief": "The BEC web app serves as a centralized hub for book readers who are willing to exchange books they have already read. It offers a user-friendly interface that allows members to list the books they possess and are willing to exchange. By doing so, they can browse through the available titles and find books of interest that other members are offering in return. The platform is built with a focus on convenience, fostering a vibrant community of avid readers who can engage in mutually beneficial book exchanges. Members can search for specific titles, authors, or genres to find suitable matches and initiate exchange requests directly with other users. Through its well-structured API, the BEC platform efficiently retrieves comprehensive information about books, such as title, author, description, cover image, and other relevant details. This ensures that users can make informed decisions when selecting books for exchange.\n The Book Exchange Club aims to foster a sense of camaraderie among book enthusiasts while promoting sustainable practices and minimizing the need for new book purchases. By facilitating book swaps, the platform not only encourages reading but also contributes to reducing environmental impact and promoting the circular economy within the literary community. The security and privacy of members are paramount, and the platform implements robust authentication and authorization mechanisms to ensure a safe and trustworthy environment. Additionally, personal information is handled with utmost care and complies with all relevant data protection regulations.\nOverall, the Book Exchange Club web app serves as a valuable resource for book lovers seeking to diversify their reading list while connecting with like-minded individuals in a purposeful and altruistic manner.",
-            "projectInfo": "The Book Exchange Club web application is a platform designed to facilitate the exchange of books between individuals without the need for monetary transactions. The platform leverages a custom-built public API, powered by Python Flask, to gather all the required information for specific books and store it in the form of JSON.",
+            "projectInfo": "The Book Exchange Club web app facilitates book exchanges without monetary transactions. It utilizes a custom Flask API to gather book information stored as JSON. Members list books they're willing to exchange and browse others' offerings. The platform promotes community, convenience, and informed choices. Users search for titles, authors, or genres and initiate exchange requests. The API provides comprehensive book details for informed decisions. The club fosters camaraderie, sustainable practices, and a circular economy. It prioritizes security, privacy, and regulatory compliance. Overall, it's a valuable resource for book lovers to diversify their reading list and connect altruistically.",
             "projectSkills": [
-                "React |",
-                " React |",
-                " React |",
-                " React |",
-                " React |",
-                " React |",
-                " React |",
-                " React |",
-                " React |"
+                "React | ",
+                "React Spring | ",
+                "Redux | ",
+                "Reac Router | ",
+                "Firebase | ",
+                "Html | ",
+                "CSS | ",
+                "Javascript | ",
+                "JSON | ",
+                "JSX | ",
+                "Python | ",
+                "Flask | ",
+                "Heroku"
             ],
             "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
-            "projectTitle": "Speeve",
-            "projectBrief": "Project Brief",
-            "projectInfo": "Introducing Speeve - A Cutting-Edge Web and Mobile Application Developed with ReactJS and React Native. Speeve, a dynamic start-up company, has set its sights on revolutionizing the way we connect and interact through its innovative web and mobile applications. Meticulously crafted using industry-leading technologies, Speeve's web-app and mobile app redefine user experiences with the seamless integration of ReactJS and React Native, respectively.",
-            "projectSkills": [
-                "React\n",
-                "React Spring\n",
-                "Redux\n",
-                "Firebase\n",
-                "Html\n",
-                "CSS\n",
-                "Javascript\n",
-                "JSX\n",
-                "Python\n",
-                "Flask\n",
-                "Heroku\n"
-            ],
-            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        },
-        {
+            "projectImage": "theBikerGang.png",
             "projectTitle": "The Biker Gang",
             "projectBrief": "Project Brief",
-            "projectInfo": "Introducing \"The Biker Gang\" - Your Concept Site for Effortless Online Bike Purchases, Powered by Firebase. The Biker Gang is a personal project, thoughtfully crafted to revolutionize the way bike enthusiasts shop for their dream rides online. With its user-friendly interface and advanced technology stack, The Biker Gang offers a seamless shopping experience, enabling users to explore an extensive collection of bike models, specifications, and availability. Leveraging the power of Firebase Authentication, users can effortlessly log in using various methods, ensuring privacy and ease of access. ",
+            "projectInfo": "Introducing \"The Biker Gang\" – Your seamless online bike shopping experience, powered by Firebase. With an intuitive interface, extensive bike collection, and Firebase Authentication for effortless logins, The Biker Gang revolutionizes how enthusiasts shop for bikes. Real-time data retrieval, secure HTTPS connections, and a commitment to user satisfaction define its design. Whether you're a seasoned rider or a casual enthusiast, The Biker Gang caters to all, offering an enjoyable and hassle-free shopping experience. The vision is to pioneer online bike retail, keeping users informed in real-time and ensuring quick access with Firebase Authentication. As The Biker Gang evolves, a dedication to technical excellence and user-centric design promises an elevated shopping experience for bike enthusiasts.",
             "projectSkills": [
-                "React\n",
-                "React Spring\n",
-                "Redux\n",
-                "Firebase\n",
-                "Html\n",
-                "CSS\n",
-                "Javascript\n",
-                "JSX\n",
-                "Python\n",
-                "Flask\n",
-                "Heroku\n"
+                "Figma | ",
+                "HTML | ",
+                "Java Script | ",
+                "CSS | ",
+                "SASS | ",
+                "Firebase | ",
+                "PhotoShop"
             ],
             "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
+            "projectImage": "ems.png",
             "projectTitle": "EMS - Employee Management System",
             "projectBrief": "Project Brief",
-            "projectInfo": "This exceptional website was conceived and brought to life during an exhilarating hackathon hosted on HackerEarth.com. The challenge posed to the participants was to design and develop a dynamic web app that would empower project managers and higher authorities to enhance their employee management capabilities. The result: a groundbreaking web application that revolutionizes the way leaves, holidays, attendance, and project teams are managed. Crafted with precision and passion, this web app boasts an array of powerful features.",
+            "projectInfo": "This exceptional website was born from a thrilling hackathon hosted on HackerEarth.com. Participants were tasked with creating a dynamic web app to empower project managers and authorities in enhancing employee management. The result? A groundbreaking application that transforms leave, holiday, attendance, and project team management. With user-friendly features, employees can effortlessly request leaves and holidays, while managers stay updated on attendance for seamless workforce management. The app streamlines project heads' roles by efficiently managing project teams. Leveraging React for the front-end and Firebase for the backend, the team delivered a responsive platform within just one week. React facilitated an intuitive front-end, while Firebase ensured efficient data management and real-time updates. This web app embodies innovation and ingenuity, showcasing the power of React and Firebase in skilled hands. With its seamless functionality, it sets the stage for efficient workforce management.",
             "projectSkills": [
-                "React\n",
-                "React Spring\n",
-                "Redux\n",
-                "Firebase\n",
-                "Html\n",
-                "CSS\n",
-                "Javascript\n",
-                "JSX\n",
-                "Python\n",
-                "Flask\n",
-                "Heroku\n"
+                "React JS | ",
+                "React Router | ",
+                "React Spring | ",
+                "Firestore | ",
+                "Firebase | ",
+                "HTML | ",
+                "CSS | ",
+                "Java Script"
             ],
             "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
+            "projectImage": "",
             "projectTitle": "The Space Shooter",
             "projectBrief": "Project Brief",
-            "projectInfo": "Embarked on an ambitious journey of Java mastery, I set out to build an entire game from scratch, drawing inspiration from the immensely popular game Minecraft. The main goal was to deepen my understanding of Java programming and replicate some of Minecraft's key functionalities. As the project progressed, I crafted an intricate world with block-based mechanics and immersive interactions, but I encountered challenges with implementing complex game physics. Acknowledging the limitations, I discovered the power of game engines like Unity and Unreal, prompting a strategic shift towards these industry-standard platforms. As my transition to Unity and Unreal began, I channeled my creative energy into designing a charming 8-bit spaceship.",
+            "projectInfo": "Embarking on a Java mastery journey, I aimed to construct a game inspired by Minecraft, driven by a desire to deepen my programming understanding. Crafting an intricate world with block-based mechanics, I faced challenges with complex physics, prompting a shift to Unity and Unreal engines. Transitioning, I designed an 8-bit spaceship using Paint, infusing nostalgia into the game's aesthetics. This pixel-perfect creation seamlessly integrated into the new environment, revitalizing my excitement. Unity and Unreal's robust frameworks offered versatile solutions, liberating me from prior constraints. Armed with enhanced capabilities, I delved into crafting immersive gameplay, navigating the spaceship through dynamic worlds and challenges. Transitioning from Java to Unity and Unreal marked a transformative period, empowering me to create captivating gaming experiences. The small 8-bit spaceship, born in Paint, thrives as a significant character, embodying the boundless potential of my evolving game development journey.",
             "projectSkills": [
-                "React\n",
-                "React Spring\n",
-                "Redux\n",
-                "Firebase\n",
-                "Html\n",
-                "CSS\n",
-                "Javascript\n",
-                "JSX\n",
-                "Python\n",
-                "Flask\n",
-                "Heroku\n"
+                "Java | ",
+                "Linked Lists | ",
+                "Graphs( for AI enemies ) | ",
+                "Visual Studio Code | ",
+                "Java AWT | ",
+                "Java Swing"
             ],
             "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
+            "projectImage": "",
             "projectTitle": "Doggy - The python package.",
             "projectBrief": "Project Brief",
-            "projectInfo": "Introducing \"Doggy\" - Your Dynamic Python Package for Effortless Profile Management and GitHub Repository Initialization. Doggy represents a groundbreaking advancement in Python development, providing developers with a versatile and intuitive toolset for profile creation and organization. This feature-rich Python package simplifies the process of managing file and code-editor shortcuts, allowing for seamless switching between different profiles. With Doggy, developers can effortlessly create and customize multiple profiles, tailored to specific projects or coding environments. The package enables setting up shortcuts for code editors, customizing file paths, and defining preferred configurations, empowering users to enhance productivity and streamline their development workflow.",
+            "projectInfo": "Introducing \"Doggy\" – Your Python Package for Profile Management and GitHub Repository Initialization. Doggy revolutionizes Python development by offering a versatile toolset for effortless profile creation and organization. With Doggy, developers can easily manage file and code-editor shortcuts, switch between profiles seamlessly, and customize configurations for different projects. The package also simplifies GitHub repository initialization, reducing multiple commands into a single function for efficient setup. Available on PYPI, Doggy streamlines development experiences with its clean API and intuitive functionalities. It empowers developers to enhance productivity and organization from the start. Doggy represents the power of Python development, promising to be an invaluable addition to any developer's toolkit. Experience streamlined development with Doggy – the ultimate Python package for profile management and GitHub repository initialization.",
             "projectSkills": [
-                "React\n",
-                "React Spring\n",
-                "Redux\n",
-                "Firebase\n",
-                "Html\n",
-                "CSS\n",
-                "Javascript\n",
-                "JSX\n",
-                "Python\n",
-                "Flask\n",
-                "Heroku\n"
+                "CLICK | ",
+                "Python | ",
+                "PYPI | ",
+                "Visual Studio Code"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectImage": "",
+            "projectTitle": "Tower Defense with Unity",
+            "projectBrief": "Project Brief",
+            "projectInfo": "Embarking on a dedicated learning journey, I immersed myself in Unity game development. Utilizing YouTube tutorials and Unity's documentation, I mastered Unity's fundamentals and basic scripting. My project focused on creating an engaging game featuring 3D shapes, with NPCs and intricate turrets as core elements. NPCs traversed the game world while turrets skillfully tracked and shot them down, infusing dynamism and excitement. Scripting in Unity, I leveraged powerful tools to bring NPCs and turrets to life, exploring AI behavior and interactions for immersive gameplay. The synergy of YouTube tutorials and Unity's documentation equipped me with the skills to create captivating game elements. Applying these learnings, coupled with creativity, resulted in a mesmerizing game world teeming with lively NPCs and precise turrets. My journey underscores the value of continuous learning and resourceful exploration in Unity game development. With a solid foundation and the implementation of NPCs and turrets, I'm poised to push the boundaries of my expertise, creating even more immersive gaming experiences.",
+            "projectSkills": [
+                "Unity | ",
+                "C#(Scripting) | ",
+                "Blender | ",
+                "Visual Studio | ",
+                "Photoshop"
+            ],
+            "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "projectImage": "",
+            "projectTitle": "Vampire Story - Unreal Engine Game.",
+            "projectBrief": "Project Brief",
+            "projectInfo": "Immersed in the captivating world of game development, I embarked on an exciting journey using Unreal Engine as my creative canvas. This base level game served as an ideal platform to explore Unreal Engine's capabilities, allowing me to experiment with lighting techniques and delve into game scripting fundamentals. Inspired by classic 2D side-scrollers, I envisioned a game where players could navigate captivating levels adorned with meticulously crafted sprites. Unreal Engine's intuitive tools streamlined the process of creating visually stunning environments, bringing my imaginative worlds to life. Through this project, I refined my skills in lighting design, discovering how illumination enhances ambiance and immersion. Experimenting with various lighting setups, I learned to balance visual aesthetics with gameplay dynamics. The true revelation came with my exploration of basic game scripting. Leveraging Unreal Engine's Blueprints visual scripting system, I added interactivity, logic, and mechanics to my game, transforming static scenes into dynamic player-driven experiences. This project laid the foundation for my game development expertise, with Unreal Engine proving to be an invaluable tool. It fueled my passion for creating captivating 2D side-scrollers and empowered me to experiment with game mechanics, lighting, and scripting. As I continue to expand upon this project, I eagerly anticipate evolving my skills and crafting even more engaging and immersive gaming experiences in the future.",
+            "projectSkills": [
+                "Unreal Engine | ",
+                "Pixel Editor | ",
+                "Photoshop | ",
+                "Itch.io (for game assets)"
             ],
             "projectBg": "https://images.unsplash.com/photo-1650454299314-0b2e05bade9b?q=80&w=2772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }

@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root{
     --largest-heading-size: 200px;
@@ -9,14 +12,18 @@
     --regular-heading-size: 60px;
     --medium-heading-size: 40px;
     --small-heading-size: 30px;
+    --very-small-heading-size: 20px;
 
-    --p-regular: 1rem;
+    --mobile-h1-size: 70px;
 
-    --h1-font: 'Arvo';
-    --p-font: 'Sora';
+    --p-regular: 0.9rem;
+    --p-small: 0.8rem;
+
+    --h1-font: 'Rubik';
+    --p-font: 'Rubik';
 
     --container-padding: 0 5em;
-    --mobile-container-padding: 1em;
+    --mobile-container-padding: 2em;
 
     --p-color: #F1F6F9;
     --heading-color: #9BA4B5;

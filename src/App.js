@@ -6,6 +6,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import aboutMe from './about-me2.jpg';
 
+
+
+
 import exp from './exp.json';
 
 import './global.css';
@@ -13,6 +16,15 @@ import './App.css'
 
 
 function App() {
+
+  const importAll = (r) => {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+  };
+
+  const allImages = importAll(require.context('./projectImages', false, /\.(png|jpe?g|svg)$/));
+
   const main = useRef();
 
   const [fadeInEle, setFadeInEle] = useState([]);
@@ -25,7 +37,6 @@ function App() {
   const [forMobile, setForMobile] = useState(false);
 
   useEffect(() => {
-
     if (window.innerWidth <= 576) { setForMobile(true) }
 
     //onsole.log("is on mobile = ", forMobile);
@@ -86,7 +97,7 @@ function App() {
         top: 0,
         scrollTrigger: {
           trigger: ele,
-          start: 'top 70%',
+          start: forMobile ? 'top 85%' : 'top 70%',
           end: 'top bottom',
           toggleActions: 'play none reverse none',
         },
@@ -99,12 +110,12 @@ function App() {
   useGSAP(() => {
     const line = gsap.timeline({
       scrollTrigger: {
-        scrub: 2,
-        trigger: "#intro-page-heading",
-        start: "top 5%",
-        endTrigger: "#intro-page",
-        end: 'bottom 50%',
-        toggleActions: "play none none reverse"
+        scrub: 5,
+        trigger: "#intro-page",
+        start: "top top%",
+        endTrigger: "#intro-page-heading",
+        end: 'bottom center',
+        toggleActions: "play none none none"
       }
     });
 
@@ -114,21 +125,19 @@ function App() {
       gsap.fromTo(el, {
         opacity: 0,
         rotateX: '100deg',
-        left: 100,
-        top: 100
+        top: 200
       }, {
         opacity: 1,
         rotateX: '0deg',
-        left: 0,
         top: 0,
         scrollTrigger: {
-          start: 'top 70%',
+          start: forMobile ? 'top 150%' : 'top 100%',
           trigger: el,
-          end: 'bottom 80%',
+          end: forMobile ? 'bottom 100%' : 'bottom 90%',
           scrub: 5
         },
-        stagger: 5,
-        duration: 10,
+        stagger: 3,
+        duration: 0.9,
         ease: 'power.inOut'
       });
     });
@@ -153,19 +162,16 @@ function App() {
     });
 
     line.from(".line", {
-      height: "0%",
+      backgroundColor: "black",
       width: "0%",
-      bottom: "0%",
-      top: "20%",
-      rotate: '0deg'
+      opacity: 0.6,
     });
 
     line.to(".line", {
       width: "100%",
-      rotate: '180deg',
-      height: "100%",
-      borderRadius: '0',
-      top: '0%',
+      opacity: 1,
+      backgroundColor: "black",
+      ease: 'expo.inOut'
     });
   }, [isLoaded, forMobile])
 
@@ -202,7 +208,7 @@ function App() {
 
     <WorkWrapper />
 
-    <Projects />
+    <Projects forMobile={forMobile} projectImages={allImages} />
 
     <div id="line-wrapper">
       <div className="line">
@@ -245,9 +251,19 @@ function WorkExp() {
   </div>
 }
 
-function Projects() {
+function Projects({ projectImages, forMobile }) {
 
   const pro = useRef(null);
+
+  useEffect(() => {
+
+    // console.log(projectImages);
+
+    // Array.from(projectImages).map((el) => {
+    //   console.log("thisoajhkdajshdkjs");
+    //   console.log(el);
+    // });
+  }, [])
 
   useGSAP(() => {
     gsap.fromTo('.scroll-text', {
@@ -264,6 +280,34 @@ function Projects() {
       duration: 10
     });
   }, []);
+
+  const handleMouseEnter = (e) => {
+    var projectCards = pro.current.querySelectorAll('.project-card');
+    if (!forMobile) {
+      projectCards.forEach((el) => {
+        if (el === e.target) {
+          el.classList.toggle("on");
+        }
+        else {
+          el.classList.toggle("off");
+        }
+      })
+    }
+  }
+
+  const handleMouseLeave = (e) => {
+    var projectCards = pro.current.querySelectorAll('.project-card');
+    if(!forMobile){
+      projectCards.forEach((el) => {
+        if (el === e.target) {
+          el.classList.toggle("on");
+        }
+        else {
+          el.classList.toggle("off")
+        }
+      })
+    }
+  }
 
   const showSection = (e) => {
     console.log(e);
@@ -285,7 +329,7 @@ function Projects() {
       bodyElement = bodyElement.parentNode;
     }
     console.log(bodyElement);
-    
+
     bodyElement.classList.remove('no-scroll');
   }
 
@@ -295,20 +339,19 @@ function Projects() {
     </div>
     {exp.projects.map((e, index) => {
       return <div key={index} className="project-card-wrapper">
-        <div onClick={showSection} className="project-card fade-in-cards">
+        <div onClick={showSection} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} className="project-card fade-in-cards">
           <div id="project-card-content-wrapper">
             <div id="project-card-content">
               <p>{index + 1} /</p>
-              <p className="project-heading-letters">{e.projectTitle}</p>
               <p className="project-heading-letters">{e.projectTitle}</p>
             </div>
           </div>
         </div>
         <div onClick={closeSection} id="project-card-section">
           <div id="inner-project-section">
-
             <div id="project-title">
               <h1>{e.projectTitle}</h1>
+              {/* <img src={e.projectImage === "" ? "" : projectImages[e.projectImage]} /> */}
             </div>
             <div id="project-details">
               <div id="project-problem">
@@ -319,21 +362,8 @@ function Projects() {
                 <h2>Project Skills</h2>
                 <p>{e.projectSkills}</p>
               </div>
+              <p id="close-card">click anywhere to close</p>
             </div>
-
-            {/* <div id="project-section-brief">
-
-            </div>
-            <div id="project-section-heading">
-              <h1 className="project-heading-letters">{e.projectTitle}</h1>
-              <div>
-                <h2>Skills Utilized</h2>
-                <p>Skills Skills Skills Skills Skills Skills Skills Skills Skills\
-                  Skills Skills Skills Skills Skills Skills Skills Skills Skills Skills
-                  Skills Skills Skills Skills Skills Skills Skills Skills Skills Skills
-                </p>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
