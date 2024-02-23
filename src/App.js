@@ -212,7 +212,7 @@ function App() {
 
     <div id="line-wrapper">
       <div className="line">
-        <img width="50" height="50" src="https://img.icons8.com/ios/50/000000/circled-right-2.png" alt="circled-right-2" />
+        {/* <img width="50" height="50" src="https://img.icons8.com/ios/50/000000/circled-right-2.png" alt="circled-right-2" /> */}
       </div>
     </div>
   </section>
