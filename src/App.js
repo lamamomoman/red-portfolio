@@ -274,7 +274,7 @@ function Projects({ projectImages, forMobile }) {
         trigger: '.scroll-text',
         endTrigger: '#projects-wrapper',
         end: 'bottom bottom',
-        toggleActions: 'play none none stop',
+        toggleActions: 'play none reverse none',
         scrub: 2,
       },
       duration: 10

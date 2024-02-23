@@ -129,7 +129,7 @@ body.no-scroll {
   position: relative;
   font-family: var(--h1-font);
   font-size: 250px;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 0.6em;
 }
 
@@ -218,6 +218,7 @@ body.no-scroll {
   position: relative;
   display: inline-block;
   font-family: var(--h1-font);
+  font-weight: bold;
 }
 
 #app #work-wrapper #work-exp-wrapper #company-letters .work-heading-letters {
@@ -691,8 +692,7 @@ body.no-scroll {
   
   #app #projects-wrapper .project-card-wrapper.show-project-section #project-card-section #inner-project-section{
     width: 100%;
-    height: auto;
-    margin: 50px 20px;
+    height: 100vh;
     transform: translate(0%, 0%);
   }
 
@@ -708,15 +708,22 @@ body.no-scroll {
 
   #app #projects-wrapper #inner-project-section #project-details #project-problem{
     padding: 0 0 1em 0;
+    flex: none;
   } 
 
   #app #projects-wrapper #inner-project-section #project-details #project-skills{
     padding: 1em 0 0 0;
   }
+
+  #app #projects-wrapper #inner-project-section #project-details #project-skills p{
+    font-weight: 400;
+    font-size: var(--p-very-small);
+  }
   
   #projects-wrapper .project-card-wrapper #project-card-section #inner-project-section
   #project-title{
     padding: 3em 0;
+    flex: 0.3;
   }
 
   #projects-wrapper .project-card-wrapper #project-card-section #inner-project-section

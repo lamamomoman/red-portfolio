@@ -18,12 +18,13 @@
 
     --p-regular: 0.9rem;
     --p-small: 0.8rem;
+    --p-very-small: 0.7rem;
 
     --h1-font: 'Rubik';
     --p-font: 'Rubik';
 
     --container-padding: 0 5em;
-    --mobile-container-padding: 2em;
+    --mobile-container-padding: 1em;
 
     --p-color: #F1F6F9;
     --heading-color: #9BA4B5;
