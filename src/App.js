@@ -1,386 +1,249 @@
-import React, { useLayoutEffect, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import React, { Profiler, useLayoutEffect, useState } from "react";
+import gsap, { mapRange } from "gsap";
 import { useEffect, useRef } from "react";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-import aboutMe from './about-me2.jpg';
-
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 
 
-import exp from './exp.json';
+
+import Loading from './Components/Loading';
+import Footer from './Components/Footer';
+import NavBar from './Components/NavBar';
 
 import './global.css';
-import './App.css'
-
 
 function App() {
 
-  const importAll = (r) => {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  };
+  const mainRef = useRef(null);
 
-  const allImages = importAll(require.context('./projectImages', false, /\.(png|jpe?g|svg)$/));
+  const [loading, setLoading] = useState(true);
+  const [pageLoaded, setPageLoaded] = useState(false);
 
-  const main = useRef();
+  const meInfo = [8, 2000, 200];
 
-  const [fadeInEle, setFadeInEle] = useState([]);
+
+
+  const letterAnim = (el) => {
+    gsap.fromTo(el, {
+      top: 200,
+      opacity: 0,
+      rotateZ: '10deg'
+    }, {
+      top: 0,
+      opacity: 1,
+      rotateZ: '0deg',
+      stagger: 0.04,
+      duration: 0.6,
+
+      ease: 'back.inOut',
+    });
+  }
+
+  const letterScrollAnim = (el, enter) => {
+    const letterScroll = el.querySelectorAll('.letter');
+
+    gsap.fromTo(letterScroll, {
+      top: enter ?  -50: 0,
+      opacity: enter ? 0 : 1,
+    }, {
+      top: enter ? 0 : -50,
+      opacity: enter ? 1 : 0,
+      stagger: 0.04,
+      duration: enter ? 0.8 : 0,
+      ease: 'elastic.inOut',
+    });
+
+  }
+
+  const lineAnim = (el) => {
+    gsap.fromTo(el, {
+      top: 200,
+      opacity: 0
+    }, {
+      top: 0,
+      opacity: 1,
+      stagger: 0.2,
+      duration: 1,
+      ease: "back.inOut"
+    })
+  }
+
+  const fadeIn = (el, enter) => {
+    gsap.fromTo(el, {
+      top: enter ? -100 : 0,
+      opacity: enter ? 0 : 1,
+    }, {
+      top: enter ? 0 : -100,
+      opacity: enter ? 1 : 0,
+    })
+  }
+
+  const changeRed = (el, enter) => {
+    gsap.fromTo(el, {
+      color: enter ? 'black' : 'red',
+      opacity: enter ? '0.5' : '1',
+    }, {
+      color: enter ? 'red' : 'black',
+      opacity: enter ? '1' : '0.5',
+    })
+  }
+
+  const runAnimations = () => {
+    letterAnim("#first-page-section .split-word .letter");
+    lineAnim('.line');
+    lineAnim('#first-page-section .mini-heading-section');
+  }
+
+
+  const functionMapping = {
+    fadeIn: fadeIn,
+    changeRed: changeRed,
+    letterAnim: letterAnim,
+    letterScrollAnim: letterScrollAnim
+  }
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  }, []);
 
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [forMobile, setForMobile] = useState(false);
+    window.onload = () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 5000);
+    }
+  });
 
   useEffect(() => {
-    if (window.innerWidth <= 576) { setForMobile(true) }
+    let animationsRun = "";
 
-    //onsole.log("is on mobile = ", forMobile);
+    if (mainRef.current) {
 
-    const images = Array.from(main.current.querySelectorAll('img')); // Get all images
-    const promises = images.map(img => new Promise(resolve => {
-      img.onload = resolve; // Resolve promise when image loads
-    }));
+      const scroll = new LocomotiveScroll({
+        el: mainRef.current,
+        smooth: true,
+        lerp: 0.08,
+        multiplier: 0.6,
+        smartphone: {
+          smooth: true,
+        },
+      });
 
-    //console.log("images = ", images);
+      scroll.on('scroll', (args) => {
+        if (args.scroll.y > window.innerHeight * 0.7) {
 
-    Promise.all(promises).then(() => setIsLoaded(true));
-    console.log(isLoaded);
+        }
+      })
 
-    const fadeElements = Array.from(main.current.querySelectorAll('.fade-in'));
-    setFadeInEle(fadeElements);
-    const parallaxElements = Array.from(main.current.querySelectorAll('.parallax-effect1'));
-    parallaxElements.forEach((ele) => {
-      gsap.fromTo(ele, {
-        yPercent: 0,
-        transform: 'scale(1.06)'
-      }, {
-        yPercent: -30,
-        transform: 'scale(1)',
-        scrollTrigger: {
-          trigger: ele,
-          scrub: 2,
+      scroll.on('call', (func, status, el) => {
+        if (func in functionMapping) {
+          functionMapping[func](el.el, status === "enter" ? true : false);
         }
       });
-    });
 
-    gsap.fromTo('.letter-anim', {
-      opacity: 1,
-      top: 0,
-      color: 'black',
-    }, {
-      opacity: 1,
-      color: '#9BA4B5',
-      top: forMobile ? '80vh' : '50vh',
-      scrollTrigger: {
-        scrub: 5,
-        trigger: '.letter-anim',
-        start: 'top 15%',
-        end: 'bottom bottom',
-      },
-      stagger: forMobile ? 0.2 : 0.4,
-      duration: forMobile ? 30 : 10,
-      ease: 'back.inOut'
-    });
 
-    fadeInEle.forEach((ele) => {
-      gsap.fromTo(ele, {
-        ease: 'back.inOut',
-        opacity: 0,
-        top: 200
-      }, {
-        opacity: 1,
-        top: 0,
-        scrollTrigger: {
-          trigger: ele,
-          start: forMobile ? 'top 85%' : 'top 70%',
-          end: 'top bottom',
-          toggleActions: 'play none reverse none',
-        },
-        stagger: 2,
-        duration: 0.5
-      });
-    });
-  }, [isLoaded, forMobile]);
+      if (pageLoaded && !animationsRun) { runAnimations() }
 
-  useGSAP(() => {
-    const line = gsap.timeline({
-      scrollTrigger: {
-        scrub: 5,
-        trigger: "#intro-page",
-        start: "top top%",
-        endTrigger: "#intro-page-heading",
-        end: 'bottom center',
-        toggleActions: "play none none none"
-      }
-    });
+      // Cleanup function
+      return () => {
+        scroll.destroy();
+      };
+    }
 
-    const fadeInCards = Array.from(main.current.querySelectorAll('.fade-in-cards'))
+  }, [pageLoaded]);
 
-    fadeInCards.forEach((el) => {
-      gsap.fromTo(el, {
-        opacity: 0,
-        rotateX: '100deg',
-        top: 200
-      }, {
-        opacity: 1,
-        rotateX: '0deg',
-        top: 0,
-        scrollTrigger: {
-          start: forMobile ? 'top 150%' : 'top 100%',
-          trigger: el,
-          end: forMobile ? 'bottom 100%' : 'bottom 90%',
-          scrub: 5
-        },
-        stagger: 3,
-        duration: 0.9,
-        ease: 'power.inOut'
-      });
-    });
+  return <section id="app" className={loading ? 'loading' : ''} >
+    <Loading loading={loading} setPageLoaded={setPageLoaded} />
 
-    gsap.fromTo('.work-heading-letters', {
-      opacity: 0,
-      rotateX: '100deg',
-      top: -40,
-    }, {
-      opacity: 1,
-      rotateX: '0deg',
-      top: 0,
-      scrollTrigger: {
-        scrub: 5,
-        trigger: '.work-heading-letters',
-        start: 'top 60%',
-        end: 'bottom 30%',
-      },
-      stagger: 5,
-      duration: 50,
-      ease: 'back.inOut'
-    });
-
-    line.from(".line", {
-      backgroundColor: "black",
-      width: "0%",
-      opacity: 0.6,
-    });
-
-    line.to(".line", {
-      width: "100%",
-      opacity: 1,
-      backgroundColor: "black",
-      ease: 'expo.inOut'
-    });
-  }, [isLoaded, forMobile])
-
-  return <section ref={main} id="app">
-    {/* {!isLoaded ? <div id="loading"><h1>Loading</h1></div> : ""} */}
-    <div id="intro-page-bg"></div>
-    <section id="intro-page-wrapper">
-      <div id="intro-page">
-        <div id="intro-page-heading">
-          <WordSplit className={"letter-anim"}>
-            <h1>Creative Developer.</h1>
-          </WordSplit>
+    <section data-scroll-container id="pages" ref={mainRef}>
+      <section className="page" id="first-page-section">
+        <div id="first-page-image-section">
+          <div data-scroll data-scroll-speed={10} className="line"></div>
+          <div data-scroll data-scroll-speed={-15} className="line"></div>
+          <div data-scroll data-scroll-speed={20} className="line"></div>
+          {/* <img data-scroll data-scroll-speed={-2} src="https://images.unsplash.com/photo-1708461244988-6c1898d91066?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" /> */}
         </div>
-        <div id="intro-page-content" className="fade-in">
-          <h1>Where Code Meets Creativity: Transforming Ideas into Digital Wonders!</h1>
-        </div>
-      </div>
-    </section>
-    <section id="about-me-wrapper">
-      <div id="about-me">
-        <div id="about-me-image-wrapper" >
-          <div id="about-me-image">
-            <img className="parallax-effect1" src={aboutMe} />
+        <div id="section-headings">
+          <div id="main-section-headings">
+            <WordSplit><h1>RED/MANGO/APPLE</h1></WordSplit>
+          </div>
+          <div id="mini-headings">
+            <div>
+              <HeadingSection heading={"Currently"} subHeading={"Student at NJIT"} />
+              <HeadingSection heading={"Enjoys"} subHeading={"Reading, Gaming and Coding"} />
+              <HeadingSection heading={"Specialized at"} subHeading={"Web Development, UI/UX and Valorant"} />
+            </div>
+            <div>
+              <HeadingSection heading={"Enthusiastic by"} subHeading={"Art, Games and Tech"} />
+              <HeadingSection heading={"Residing In"} subHeading={"NJ, United States"} />
+            </div>
           </div>
         </div>
-        <div className="fade-in" id="about-me-content-wrapper">
-          <div id="about-me-content">
-            {forMobile ? "" : <h1>Who is this guy ?</h1>}
-            <p>Karthik is not just a code warrior, but a creative architect. He crafts solutions that solve problems with elegance and captivate with their digital brushstrokes. Each project is an ode to innovation, a push against boundaries, leaving a legacy of impactful experiences. This is Karthik: a lifelong learner, a storyteller at heart, and now, an invitation to join him on this digital odyssey, to see what wonders they can weave with the magic of code.</p>
+
+      </section>
+      <section className="page" id="featured-projects-section">
+        <div id="me-intro-section">
+          <div data-scroll data-scroll-repeat="true" data-scroll-offset="20%" data-scroll-call="fadeIn" id="me-intro-content">
+            <h1>Seasoned software developer crafting innovative
+              <span data-scroll-repeat={true} data-scroll-offset={"35%"} data-scroll data-scroll-call="changeRed" className='red'> digital solutions </span>,
+              from web pages to complex applications, embracing the journey of
+              <span data-scroll data-scroll-offset={"55%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> code magic.</span></h1>
+          </div>
+          <div data-scroll data-scroll-offset="30%, 60%" data-scroll-call="letterScrollAnim"  id="me-intro-numbers">
+            <div className="mini-heading-section">
+              <p>Over</p>
+              <WordSplit animate={true}><h1>15</h1></WordSplit>
+              <p>Project Completions</p>
+            </div>
+            <div className="mini-heading-section">
+              <p>Over</p>
+              <WordSplit animate={true}><h1>2000</h1></WordSplit>
+              <p>Lines Of Code</p>
+            </div>
+            <div className="mini-heading-section">
+              <p>Over</p>
+              <WordSplit animate={true}><h1>200</h1></WordSplit>
+              <p>Cups of Cofee consumed</p>
+            </div>
+            <div className="mini-heading-section">
+              <p>Over</p>
+              <WordSplit animate={true}><h1>1000</h1></WordSplit>
+              <p>Hours on Valorant</p>
+            </div>
           </div>
         </div>
-      </div>
+
+      </section>
+      <section className="page" id="working-style-section">
+
+      </section>
+      <section className="page" id="services-section">
+
+      </section>
+
+      <Footer />
     </section>
 
-    <WorkWrapper />
 
-    <Projects forMobile={forMobile} projectImages={allImages} />
+  </section >
 
-    <div id="line-wrapper">
-      <div className="line">
-        {/* <img width="50" height="50" src="https://img.icons8.com/ios/50/000000/circled-right-2.png" alt="circled-right-2" /> */}
-      </div>
-    </div>
-  </section>
 }
 
-function WorkWrapper() {
-  return <section id='work-wrapper'>
-    <div id="work-heading-wrapper">
-      <WordSplit className={'letter work-heading-letters'} id={"work-heading1"}>
-        <h1>Work</h1>
-      </WordSplit>
-      <WordSplit className={'letter work-heading-letters'} id={"work-heading2"}>
-        <h1>Experience</h1>
-      </WordSplit>
-      <WorkExp />
-    </div>
-  </section>
-}
-
-function WorkExp() {
-  return <div id="work-exp-wrapper" className="fade-in">
-    {exp.exp.map((e, index) => {
-      return <div key={index} className="fade-in-cards work-exp-card" id={e.company}>
-        <div>
-          <h1>{e.company}</h1>
-          <h2>{e.job}</h2>
-        </div>
-        <div id="work-line">
-        </div>
-        <div>
-          <p>{e.location}</p>
-          <p>{e.timeline}</p>
-        </div>
-      </div>
-    })}
+function HeadingSection({ heading, subHeading, id }) {
+  return <div className="mini-heading-section">
+    <h1 id={id}>{heading}</h1>
+    <p>{subHeading}</p>
   </div>
 }
 
-function Projects({ projectImages, forMobile }) {
+export function WordSplit({ children, animate = false }) {
 
-  const pro = useRef(null);
+  const letters = children.props.children.split('');
 
-  useEffect(() => {
-
-    // console.log(projectImages);
-
-    // Array.from(projectImages).map((el) => {
-    //   console.log("thisoajhkdajshdkjs");
-    //   console.log(el);
-    // });
-  }, [])
-
-  useGSAP(() => {
-    gsap.fromTo('.scroll-text', {
-      xPercent: 0,
-    }, {
-      xPercent: 20,
-      scrollTrigger: {
-        trigger: '.scroll-text',
-        endTrigger: '#projects-wrapper',
-        end: 'bottom bottom',
-        scrub: 2,
-      },
-      duration: 10
-    });
-  }, []);
-
-  const handleMouseEnter = (e) => {
-    var projectCards = pro.current.querySelectorAll('.project-card');
-    if (!forMobile) {
-      projectCards.forEach((el) => {
-        if (el === e.target) {
-          el.classList.toggle("on");
-        }
-        else {
-          el.classList.toggle("off");
-        }
-      })
-    }
-  }
-
-  const handleMouseLeave = (e) => {
-    var projectCards = pro.current.querySelectorAll('.project-card');
-    if(!forMobile){
-      projectCards.forEach((el) => {
-        if (el === e.target) {
-          el.classList.toggle("on");
-        }
-        else {
-          el.classList.toggle("off")
-        }
-      })
-    }
-  }
-
-  const showSection = (e) => {
-    console.log(e);
-    e.target.parentNode.classList.add('show-project-section');
-
-    var bodyElement = e.target.parentNode;
-    while (bodyElement && bodyElement.tagName !== 'BODY') {
-      bodyElement = bodyElement.parentNode;
-    }
-    console.log(bodyElement);
-    bodyElement.classList.add('no-scroll');
-  }
-
-  const closeSection = (e) => {
-    console.log(e);
-    e.target.parentNode.classList.remove('show-project-section');
-    var bodyElement = e.target.parentNode;
-    while (bodyElement && bodyElement.tagName !== 'BODY') {
-      bodyElement = bodyElement.parentNode;
-    }
-    console.log(bodyElement);
-
-    bodyElement.classList.remove('no-scroll');
-  }
-
-  return <section ref={pro} id="projects-wrapper">
-    <div className="scroll-container">
-      <h1 className="scroll-text">Projects Projects Projects Projects Projects Projects Projects Projects</h1>
-    </div>
-    {exp.projects.map((e, index) => {
-      return <div key={index} className="project-card-wrapper">
-        <div onClick={showSection} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter} className="project-card fade-in-cards">
-          <div id="project-card-content-wrapper">
-            <div id="project-card-content">
-              <p>{index + 1} /</p>
-              <p className="project-heading-letters">{e.projectTitle}</p>
-            </div>
-          </div>
-        </div>
-        <div onClick={closeSection} id="project-card-section">
-          <div id="inner-project-section">
-            <div id="project-title">
-              <h1>{e.projectTitle}</h1>
-              {/* <img src={e.projectImage === "" ? "" : projectImages[e.projectImage]} /> */}
-            </div>
-            <div id="project-details">
-              <div id="project-problem">
-                <h2>Project Information</h2>
-                <p>{e.projectInfo}</p>
-              </div>
-              <div id="project-skills">
-                <h2>Project Skills</h2>
-                <p>{e.projectSkills}</p>
-              </div>
-              <p id="close-card">click anywhere to close</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    })}
-  </section>
-}
-
-
-
-function WordSplit({ children, id, className }) {
-
-  var letters = children.props.children.split('');
-
-  return <div id={id} className="split-words">
+  return <div {...(animate ? { 'data-scroll-speed': '0.6','data-scroll': true} : {})} className={`split-word`}>
     {letters.map((letter, index) => {
-      return <span key={index} className={className}>{letter}</span>
+      return <span key={index} className="letter">{letter}</span>
     })}
   </div>
 }
 
 export default App;
+

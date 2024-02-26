@@ -1,35 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+:root {
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    --font-family: 'Inter';
 
-:root{
-    --largest-heading-size: 200px;
-    --large-heading-size: 100px;
-    --regular-heading-size: 60px;
-    --medium-heading-size: 40px;
-    --small-heading-size: 30px;
-    --very-small-heading-size: 20px;
+    --largest-heading-fit: 100vw;
+    --largest-heading-size: 11vw;
+    --large-heading-size: 8vw;
+    --regular-heading-size: 6vw;
+    --small-heading-size: 4vw;
+    --h1-font-weight: 400;
+    --container-padding: 2em;
 
-    --mobile-h1-size: 70px;
+}
 
-    --p-regular: 0.9rem;
-    --p-small: 0.8rem;
-    --p-very-small: 0.7rem;
-
-    --h1-font: 'Rubik';
-    --p-font: 'Rubik';
-
-    --container-padding: 0 5em;
-    --mobile-container-padding: 1em;
-
-    --p-color: #F1F6F9;
-    --heading-color: #9BA4B5;
-    --heading-color-faded: #9ba4b583;
-    --main-bg-color: #DCF2F1;
-    --secondary-bg-color: #212A3E;
-    --secondary-bg-color-faded: #212a3e7f;
+body{
+    margin: 0;
+    padding: 0;
 }
