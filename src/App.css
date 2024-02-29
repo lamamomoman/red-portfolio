@@ -8,8 +8,19 @@ html.has-scroll-smooth {
   transform: translateZ(0);
 }
 
-* h1{
+* h1 {
   font-weight: 400;
+}
+
+* .letter {
+  position: relative;
+  opacity: 0;
+}
+
+#app .red {
+  color: black;
+  opacity: 0.5;
+  font-weight: 500;
 }
 
 [data-load-container] {
@@ -35,7 +46,7 @@ html.has-scroll-smooth {
 }
 
 #pages {
-  padding: 0 5em;
+  padding: 0 2em;
   height: auto;
   perspective: 2px;
 }
@@ -66,12 +77,10 @@ section {
 
 #first-page-section .split-word .letter {
   flex: 1;
-  position: relative;
   font-family: var(--font-family);
   font-size: 9vw;
   font-weight: 500;
   top: 10;
-  opacity: 0;
   color: black;
 }
 
@@ -99,17 +108,14 @@ section {
 #first-page-section #first-page-image-section img {
   transform: translate(0%, 0%);
   width: 100%;
+  position: relative;
+  opacity: 0;
 }
 
 #first-page-section #section-headings {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-#first-page-section #section-headings #main-section-headings h1 {
-  font-size: var(--large-heading-size);
-  font-weight: 200;
 }
 
 #first-page-section #section-headings #mini-headings {
@@ -133,18 +139,19 @@ section {
 }
 
 #mini-headings .mini-heading-section h1 {
-  font-size: 1vw;
+  font-size: var(--small-font-size);
   font-weight: 300;
   opacity: 0.3;
-  text-decoration: underline;
 }
 
 #mini-headings .mini-heading-section p {
-  font-size: 1vw;
+  font-size: var(--small-font-size);
 }
 
 #featured-projects-section {
   width: 100%;
+  height: auto;
+  box-sizing: border-box;
 }
 
 #featured-projects-section #me-intro-section {
@@ -155,29 +162,24 @@ section {
   flex-direction: column;
 }
 
-#me-intro-section #me-intro-content{
+#me-intro-section #me-intro-content {
   flex: 1;
   display: flex;
   align-items: center;
   margin: 5em 0;
   position: relative;
-  opacity: 0;
 }
 
-#featured-projects-section #me-intro-section #me-intro-content h1{
+#featured-projects-section #me-intro-section #me-intro-content h1 {
   font-size: 4vw;
   width: 80%;
+  font-weight: 300;
 }
 
-#featured-projects-section #me-intro-section #me-intro-content .red{
-  color: black;
-  opacity: 0.5;
-}
 
-#me-intro-section #me-intro-numbers{
+#me-intro-section #me-intro-numbers {
   flex: 1;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -185,24 +187,209 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  flex: 0.2;
+  flex: 1;
+  overflow: hidden;
 }
 
-#me-intro-section #me-intro-numbers .mini-heading-section .letter{
-  font-size: 8vw;
-  position: relative;
-  opacity: 0;
+#me-intro-section #me-intro-numbers .mini-heading-section p {
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: var(--small-font-size);
+}
+
+#me-intro-section #me-intro-numbers .mini-heading-section .letter {
+  font-size: 6vw;
   top: -50;
+  font-weight: 300;
 }
 
+#featured-projects-section #featured-projects-wrapper {
+  height: 100vh;
+  margin: 10em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#featured-projects-section #featured-projects-wrapper .letter {
+  font-size: var(--small-heading-size);
+  opacity: 0;
+  transform: skew(90deg);
+}
+
+#featured-projects-section #featured-projects-wrapper #project-wrapper-heading {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5em;
+}
+
+#featured-projects-section #featured-projects-wrapper #project-wrapper-heading .split-word {
+  overflow: hidden;
+}
+
+#featured-projects-wrapper #project-windows-grid {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+}
+
+#featured-projects-wrapper #project-windows-grid .project-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+}
+
+#featured-projects-wrapper #project-windows-grid .project-window #project-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#project-windows-grid .project-window #project-image-wrapper img {
+  height: 100%;
+}
+
+#featured-projects-wrapper #project-windows-grid .project-window #project-window-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em;
+  z-index: 3;
+  color: white;
+  backdrop-filter: blur(1px) contrast(1.2) brightness(0.8);
+}
+
+#project-windows-grid .project-window #project-window-content h1 {
+  font-size: var(--small-font-size);
+}
+
+#working-style-section{
+  height: auto;
+}
+
+#working-style-section #work-style-heading {
+  overflow: hidden;
+}
+
+#working-style-section #work-style-heading .letter {
+  font-size: var(--regular-heading-size);
+}
+
+
+#working-style .work-style-container {
+  margin: 3em 0 5em 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#working-style .work-style-container #work-heading {
+  border-bottom: 0.5px solid red;
+  opacity: 0.5;
+  overflow: hidden;
+  padding: 0.6em 0;
+}
+
+#working-style .work-style-container #work-heading .letter {
+  font-size: var(--small-font-size);
+  margin: 0.5em 0;
+  font-weight: 600;
+}
+
+
+#working-style .work-style-container p {
+  text-align: left;
+  font-size: var(--large-font-size);
+  width: auto;
+  line-height: 1.4;
+  margin: 2em 0 0 55%;
+}
+
+#working-style .work-style-container p img {
+  width: 50px;
+  height: 50px;
+  margin: 20px 0;
+}
+
+#skills-section{
+  /* border: 2px solid red; */
+}
+
+#skills-section #skills-section-heading-wrapper{
+  overflow: hidden;
+}
+
+#app #skills-section #skills-section-heading-wrapper .split-word .letter{
+  font-size: var(--large-font-size);
+  opacity: 0.5 !important;
+}
+
+#skills-section #skills-section-content-wrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#skills-section #skills-section-content-wrapper .skill-card{
+  display: flex;
+  width: auto;
+  align-items: center;
+  padding: 1em 0;
+}
+
+#skills-section #skills-section-content-wrapper .split-word{
+  overflow: hidden;
+}
+
+
+#skills-section #skills-section-content-wrapper .letter{
+  font-size: var(--small-heading-size);
+  font-weight: 400;
+}
+
+#skills-section #skills-section-content-wrapper img{
+  margin: 0 20px;
+  height: 100px;
+}
+
+
+
+
+#services-section{
+  border: 2px solid red;
+}
 
 @media screen and (max-width: 576px) {
+
+  #pages {
+    padding: 0 1em;
+  }
 
   #app #first-page-section #mini-headings {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  #app #first-page-section #first-page-image-section img {
+    height: 100%;
+    width: auto;
+    top: -50px;
   }
 
   #mini-headings>div {
@@ -215,13 +402,65 @@ section {
   }
 
   #mini-headings .mini-heading-section h1 {
-    font-size: 16px;
+    font-size: var(--mob-regular-font-size);
     font-weight: 300;
     opacity: 0.3;
   }
 
   #mini-headings .mini-heading-section p {
+    font-size: var(--mob-regular-font-size);
+  }
+
+  #featured-projects-section #me-intro-section #me-intro-content {
+    margin: 4em 0;
+  }
+
+  #featured-projects-section #me-intro-section #me-intro-content h1 {
+    font-size: var(--mob-large-font-size);
+    width: 100%;
+  }
+
+  #me-intro-section #me-intro-numbers {
+    box-sizing: border-box;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4em;
+    margin: 0px;
+  }
+
+  #me-intro-section #me-intro-numbers .mini-heading-section p {
     font-size: 16px;
+    text-align: center;
+  }
+
+  #me-intro-section #me-intro-numbers .mini-heading-section .letter {
+    font-size: var(--mob-largest-font-size);
+  }
+
+  #app #featured-projects-wrapper #project-wrapper-heading {
+    margin-bottom: 2em;
+  }
+
+  #featured-projects-wrapper #project-wrapper-heading .letter {
+    font-size: var(--mob-large-font-size);
+  }
+
+  #featured-projects-wrapper #project-windows-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #featured-projects-wrapper #project-windows-grid #project-image-wrapper img {
+    height: auto;
+    width: 100%;
+  }
+
+  #working-style-section #work-style-heading .letter {
+    font-size: var(--mob-large-font-size);
+  }
+
+  #working-style-section .work-style-container p {
+    margin: 0;
   }
 
 }
