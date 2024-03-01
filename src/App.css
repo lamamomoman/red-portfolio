@@ -10,6 +10,11 @@ html.has-scroll-smooth {
 
 * h1 {
   font-weight: 400;
+  pointer-events: none;
+}
+
+* p {
+  pointer-events: none;
 }
 
 * .letter {
@@ -69,7 +74,6 @@ section {
 
 
 #first-page-section .split-word {
-  display: inline-block;
   overflow: hidden;
   text-align: center;
   display: flex;
@@ -171,7 +175,7 @@ section {
 }
 
 #featured-projects-section #me-intro-section #me-intro-content h1 {
-  font-size: 4vw;
+  font-size: var(--small-heading-size);
   width: 80%;
   font-weight: 300;
 }
@@ -279,16 +283,25 @@ section {
   font-size: var(--small-font-size);
 }
 
-#working-style-section{
+#working-style-section {
   height: auto;
 }
 
 #working-style-section #work-style-heading {
   overflow: hidden;
+  width: 100%;
+}
+
+
+#working-style-section #work-style-heading .split-word {
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 #working-style-section #work-style-heading .letter {
   font-size: var(--regular-heading-size);
+  opacity: 1;
 }
 
 
@@ -326,15 +339,16 @@ section {
   margin: 20px 0;
 }
 
-#skills-section{
+#skills-section {
   /* border: 2px solid red; */
+  margin: 0;
 }
 
-#skills-section #skills-section-heading-wrapper{
+#skills-section #skills-section-heading-wrapper {
   overflow: hidden;
 }
 
-#app #skills-section #skills-section-heading-wrapper .split-word .letter{
+#app #skills-section #skills-section-heading-wrapper .split-word .letter {
   font-size: var(--large-font-size);
   opacity: 0.5 !important;
 }
@@ -343,36 +357,102 @@ section {
   display: inline-flex;
   flex-wrap: wrap;
   width: 100%;
+  padding: 2em 0;
 }
 
-#skills-section #skills-section-content-wrapper .skill-card{
+#skills-section #skills-section-content-wrapper .skill-card {
   display: flex;
   width: auto;
   align-items: center;
   padding: 1em 0;
 }
 
-#skills-section #skills-section-content-wrapper .split-word{
+#skills-section #skills-section-content-wrapper .split-word {
   overflow: hidden;
 }
 
 
-#skills-section #skills-section-content-wrapper .letter{
+#skills-section #skills-section-content-wrapper .letter {
   font-size: var(--small-heading-size);
   font-weight: 400;
 }
 
-#skills-section #skills-section-content-wrapper img{
+#skills-section #skills-section-content-wrapper img {
   margin: 0 20px;
-  height: 100px;
+  height: 10vh;
+}
+
+#services-section {
+  height: 100vh;
+}
+
+#services-section-heading .split-word .letter {
+  font-size: var(--large-font-size);
+  opacity: 0.5 !important;
+}
+
+#services-section #services-section-content-wrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 1em 0;
+}
+
+#services-section #services-section-content-wrapper>div {
+  flex: 0.4;
+}
+
+#services-section-content p {
+  font-size: var(--small-font-size);
 }
 
 
-
-
-#services-section{
-  border: 2px solid red;
+#services-wrapper .service {
+  overflow: hidden;
+  margin-bottom: 2em;
 }
+
+#services-wrapper .service #service-heading {
+  display: flex;
+  align-items: center;
+  padding: 0 0 1em 0;
+  justify-content: space-between;
+  border-bottom: 2px solid red;
+  pointer-events: none;
+  color: black;
+  transition: color 0.6s ease-in-out,
+    padding 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+#services-wrapper .service #service-heading h1 {
+  font-size: 3vw;
+  font-weight: 400;
+  position: relative;
+  opacity: 0;
+}
+
+#services-wrapper .service #service-content {
+  height: 0vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: height 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+#services-wrapper .service #service-content p {
+  font-size: var(--small-font-size);
+  padding: 2em 0;
+}
+
+#services-wrapper .service.show-service #service-content {
+  height: 20vh;
+}
+
+#services-wrapper .service.show-service #service-heading {
+  color: red;
+  padding: 0 3em 1em 3em;
+}
+
+
 
 @media screen and (max-width: 576px) {
 
@@ -384,6 +464,15 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  #app #first-page-section {
+    height: auto;
+  }
+
+  #app #first-page-section #first-page-image-section {
+    height: 80vh;
+    box-sizing: border-box;
   }
 
   #app #first-page-section #first-page-image-section img {
@@ -461,6 +550,25 @@ section {
 
   #working-style-section .work-style-container p {
     margin: 0;
+    font-size: var(--small-font-size);
+  }
+
+  #skills-section {
+    height: auto;
+  }
+
+  #skills-section #skills-section-content-wrapper .skill-card {
+    padding: 0.2em 0;
+  }
+
+  #skills-section #skills-section-content-wrapper .letter {
+    font-size: var(--mob-large-font-size);
+    font-weight: 400;
+  }
+
+  #skills-section #skills-section-content-wrapper img {
+    margin: 0 10px;
+    height: 7vh;
   }
 
 }

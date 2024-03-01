@@ -24,6 +24,10 @@ function App() {
   const [pageLoaded, setPageLoaded] = useState(false);
   const [forMobile, updateForMobile] = useState(false);
 
+  const handleServiceClick = (el) => {
+    el.target.classList.toggle('show-service');
+  }
+
 
   const letterAnim = (el) => {
     gsap.fromTo(el, {
@@ -37,7 +41,7 @@ function App() {
       stagger: 0.04,
       duration: 0.6,
 
-      ease: 'back.inOut',
+      ease: 'circ.inOut',
     });
   }
 
@@ -67,8 +71,8 @@ function App() {
     }, {
       top: enter ? 0 : 50,
       opacity: enter ? 1 : 0,
-      stagger: enter ? 0.03 : 0,
-      duration: 0.4,
+      stagger: enter ? 0.01 : 0,
+      duration: 0.3,
       ease: 'circ.inOut',
     });
 
@@ -83,7 +87,7 @@ function App() {
       opacity: 1,
       stagger: 0.2,
       duration: 1,
-      ease: "back.inOut"
+      ease: "sine.inOut"
     })
   }
 
@@ -135,6 +139,29 @@ function App() {
     })
   }
 
+  const serviceCardAnim = (el) => {
+    const tl = gsap.timeline();
+
+    tl.add(
+      gsap.fromTo(
+        el.querySelectorAll('#service-heading .plus'),
+        { opacity: 0, top: 100 },
+        { opacity: 1, top: 0, stagger: 0.15, duration: 0.4 }
+      )
+    );
+    tl.add(gsap.fromTo(el.querySelectorAll("#service-heading .first-heading"),
+      {
+        opacity: 0,
+        top: -100
+      },
+      {
+        opacity: 1,
+        top: 0,
+        stagger: 0.15,
+        duration: 0.4
+      }));
+  }
+
 
   //initial animations, that run after the loading screen fades.
   const runAnimations = () => {
@@ -152,6 +179,7 @@ function App() {
     letterScrollAnim: letterScrollAnim,
     letterScrollAnimSped: letterScrollAnimSped,
     fadeInCards: fadeInCards,
+    serviceCardAnim: serviceCardAnim,
   }
 
   useLayoutEffect(() => {
@@ -320,7 +348,7 @@ function App() {
           </div>
           <div className='work-style-container'>
             <div id="work-heading">
-             <h1>Prototype & Perfect</h1>
+              <h1>Prototype & Perfect</h1>
             </div>
             <p>
               <img src={prototype} /> <br></br>
@@ -362,7 +390,7 @@ function App() {
       </section>
       <section className="page" id="skills-section">
         <div id="skills-section-heading-wrapper">
-          <WordSplit><h1>Skills & Expertise</h1></WordSplit>
+          <WordSplit><h1>Crafted Capabilities</h1></WordSplit>
         </div>
         <div id="skills-section-content-wrapper" data-scroll data-scroll-call="letterScrollAnimSped" data-scroll-offset={"20%"}>
           <div className="skill-card">
@@ -465,6 +493,56 @@ function App() {
         </div>
       </section>
       <section className="page" id="services-section">
+        <div id="services-section-heading">
+          <WordSplit><h1>Strengths & Abilities</h1></WordSplit>
+        </div>
+        <div id="services-section-content-wrapper">
+          <div id="services-section-content">
+            <p>From conceptualization to implementation, I excel in web development, problem-solving, UI/UX, and creative ideologies. My expertise spans a diverse spectrum, allowing me to craft innovative digital experiences that captivate audiences and drive meaningful engagement.</p>
+          </div>
+          <div id="services-wrapper" data-scroll data-scroll-offset={"40%"} data-scroll-call="serviceCardAnim">
+            <div className="service" onClick={handleServiceClick}>
+              <div id="service-heading">
+                <h1 className="plus">+</h1>
+                <h1 className="first-heading">Web Development</h1>
+              </div>
+              <div id="service-content">
+                <p>Craft robust and dynamic websites and web applications that captivate users and offer seamless functionality. From architecting intuitive user interfaces to implementing scalable backend systems, I ensure your digital platforms are both visually stunning and technologically advanced. Elevate your online presence with websites and applications that exceed expectations, leaving a lasting impression on your audience.
+                  <br></br>User Interfaces
+                  <br></br>Backend Systems
+                  <br></br>Scalable Solutions
+                  <br></br>Innovative Development</p>
+              </div>
+            </div>
+            <div className="service" onClick={handleServiceClick}>
+              <div id="service-heading">
+                <h1 className="plus">+</h1>
+                <h1 className="first-heading">Web Development</h1>
+              </div>
+              <div id="service-content">
+                <p>Create websites, web apps, or mobile apps that impress and leave a memorable user experience. From crafting user flows and moodboards to designing web and mobile applications and websites, I will ensure that your digital presence is user-friendly and with precision, backed by a cohesive design system. Your customers are in for an experience they'll rave about.</p>
+              </div>
+            </div>
+            <div className="service" onClick={handleServiceClick}>
+              <div id="service-heading">
+                <h1 className="plus">+</h1>
+                <h1 className="first-heading">Web Development</h1>
+              </div>
+              <div id="service-content">
+                <p>Create websites, web apps, or mobile apps that impress and leave a memorable user experience. From crafting user flows and moodboards to designing web and mobile applications and websites, I will ensure that your digital presence is user-friendly and with precision, backed by a cohesive design system. Your customers are in for an experience they'll rave about.</p>
+              </div>
+            </div>
+            <div className="service" onClick={handleServiceClick}>
+              <div id="service-heading">
+                <h1 className="plus">+</h1>
+                <h1 className="first-heading">Web Development</h1>
+              </div>
+              <div id="service-content">
+                <p>Create websites, web apps, or mobile apps that impress and leave a memorable user experience. From crafting user flows and moodboards to designing web and mobile applications and websites, I will ensure that your digital presence is user-friendly and with precision, backed by a cohesive design system. Your customers are in for an experience they'll rave about.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <Footer />
