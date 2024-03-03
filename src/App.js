@@ -1,5 +1,5 @@
-import React, { Profiler, useLayoutEffect, useState } from "react";
-import gsap, { mapRange } from "gsap";
+import React, { useLayoutEffect, useState } from "react";
+import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
@@ -12,7 +12,7 @@ import truck from './Icons/Truck icon.gif';
 
 import Loading from './Components/Loading';
 import Footer from './Components/Footer';
-import NavBar from './Components/NavBar';
+// import NavBar from './Components/NavBar';
 
 import './global.css';
 import './Styles/footer.css';
@@ -21,7 +21,7 @@ function App() {
 
   const mainRef = useRef(null);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [pageLoaded, setPageLoaded] = useState(false);
   const [forMobile, updateForMobile] = useState(false);
 
@@ -75,9 +75,9 @@ function App() {
     }, {
       top: enter ? 0 : 50,
       opacity: enter ? 1 : 0,
-      stagger: enter ? 0.04 : 0,
-      duration: 0.5,
-      ease: 'circ.inOut',
+      stagger: enter ? 0.05 : 0,
+      duration: 1,
+      ease: 'power4.inOut',
     });
 
   }
@@ -192,32 +192,34 @@ function App() {
   }
 
 
-  const functionMapping = {
-    fadeIn: fadeIn,
-    changeRed: changeRed,
-    letterAnim: letterAnim,
-    letterScrollAnim: letterScrollAnim,
-    letterScrollAnimSped: letterScrollAnimSped,
-    fadeInCards: fadeInCards,
-    serviceCardAnim: serviceCardAnim,
-    imgScrollAnim: imgScrollAnim
-  }
+
 
   useLayoutEffect(() => {
 
     window.onload = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 5000);
+      }, 3000);
     }
   });
 
   useEffect(() => {
     let animationsRun;
     if (pageLoaded && !animationsRun) { runAnimations() }
-  }, [pageLoaded]);
+  });
 
   useEffect(() => {
+
+    const functionMapping = {
+      fadeIn: fadeIn,
+      changeRed: changeRed,
+      letterAnim: letterAnim,
+      letterScrollAnim: letterScrollAnim,
+      letterScrollAnimSped: letterScrollAnimSped,
+      fadeInCards: fadeInCards,
+      serviceCardAnim: serviceCardAnim,
+      imgScrollAnim: imgScrollAnim
+    }
 
     if (window.innerHeight < "576px") {
       updateForMobile(true);
@@ -229,8 +231,8 @@ function App() {
       const scroll = new LocomotiveScroll({
         el: mainRef.current,
         smooth: true,
-        lerp: 0.08,
-        multiplier: 0.6,
+        lerp: 0.1,
+        multiplier: 0.2,
         smartphone: {
           smooth: true,
         },
@@ -263,7 +265,7 @@ function App() {
           {/* <div data-scroll data-scroll-speed={10} className="line"></div>
           <div data-scroll data-scroll-speed={-15} className="line"></div>
           <div data-scroll data-scroll-speed={20} className="line"></div> */}
-          <img data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src="https://images.unsplash.com/photo-1530128051436-3ab3663a4683?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+          <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src="https://images.unsplash.com/photo-1530128051436-3ab3663a4683?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
         </div>
         <div id="section-headings">
           <div id="main-section-headings">
@@ -320,7 +322,7 @@ function App() {
           <div data-scroll data-scroll-call="fadeInCards" data-scroll-offset={"50%"} id="project-windows-grid">
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1606516170542-2a6a36ab1562?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8" />
+                <img alt="NA" data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1606516170542-2a6a36ab1562?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8" />
               </div>
               <div id="project-window-content">
                 <h1>Book Exchange Club and Web API</h1>
@@ -329,7 +331,7 @@ function App() {
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1618423771880-2bcfa6b67c89?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHJlZHxlbnwwfHwwfHx8MA%3D%3D" />
+                <img alt="NA" data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1618423771880-2bcfa6b67c89?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHJlZHxlbnwwfHwwfHx8MA%3D%3D" />
               </div>
               <div id="project-window-content">
                 <h1>The Biker Gang</h1>
@@ -338,7 +340,7 @@ function App() {
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1621257428217-852546ff30f5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D" />
+                <img alt="NA" data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1621257428217-852546ff30f5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D" />
               </div>
               <div id="project-window-content">
                 <h1>Anime Hub</h1>
@@ -359,7 +361,7 @@ function App() {
               <h1>Innovate and Craft</h1>
             </div>
             <p>
-              <img src={brainStorm} /> <br></br>
+              <img alt="NA" src={brainStorm} /> <br></br>
               Venturing into innovation, I craft  <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> novel solutions </span> that captivate audiences.
               With innovative thinking, I shape ideas into tangible experiences that inspire. Each creation aims to leave an indelible mark, driving <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> user-centric </span> design evolution.
             </p>
@@ -369,7 +371,7 @@ function App() {
               <h1>Prototype & Perfect</h1>
             </div>
             <p>
-              <img src={prototype} /> <br></br>
+              <img alt="NA" src={prototype} /> <br></br>
               In prototyping, I refine the user experience tirelessly. From concepts to <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> polished prototypes </span>, I strive for perfection, fine-tuning every detail. Through iteration, I transform visions into <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> intuitive interfaces </span> that resonate with users.
             </p>
 
@@ -379,7 +381,7 @@ function App() {
               <h1>Code & Create</h1>
             </div>
             <p>
-              <img src={code} /><br></br>
+              <img alt="NA" src={code} /><br></br>
 
               Diving into code, I craft <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> elegant and efficient solutions </span>,
               blending functionality with imagination. Through coding, I bring ideas to life, creating powerful and user-friendly software.
@@ -391,12 +393,11 @@ function App() {
               <h1>Develop & Deliver</h1>
             </div>
             <p>
-              <img src={truck} /> <br></br>
-              Throughout development, I navigate the complexities of the process with precision and diligence.
-              From conceptualization to deployment, I remain steadfast in my commitment to delivering
-              <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> high quality software solutions </span>
-              that exceed expectations. With a focus on <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> agility and adaptibility </span>, I ensure that every project is delivered on time and within scope,
-              empowering users with innovative solutions that enrich their lives.
+              <img alt="NA" src={truck} /> <br></br>
+
+              Throughout development, I navigate <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> complexities with precision</span> .
+              From concept to deployment, I commit to high-quality software that exceeds expectations.
+              With agility, I ensure timely, <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> innovative solutions</span>  that enrich users' lives.
             </p>
           </div>
         </div>
@@ -405,7 +406,7 @@ function App() {
         <div id="skills-section-heading-wrapper">
           <WordSplit><h1>Crafted Capabilities</h1></WordSplit>
         </div>
-        <div id="skills-section-content-wrapper" data-scroll data-scroll-call="imgScrollAnim" data-scroll-offset={"40%"}>
+        <div id="skills-section-content-wrapper" data-scroll data-scroll-call="imgScrollAnim" data-scroll-offset={"30%"}>
           <div className="skill-card">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="react" />
           </div>
@@ -497,13 +498,14 @@ function App() {
           <div className="skill-card">
             <img src="https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci80YWI1YjNjOTg2MmZjOTFlNTFlMmU2ZjY5YTY2ZTk5Mz9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.vn16SpUv_a299JVQYFcyqEx22Z2eknMUgaL2l2ilARU" alt="react" />
           </div>
-
           <div className="skill-card">
             <img src="https://cdn.thenewstack.io/media/2021/10/4f0ac3e0-visual_studio_code.png" alt="react" />
           </div>
-
           <div className="skill-card">
             <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png" alt="react" />
+          </div>
+          <div className="skill-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png" alt="react" />
           </div>
         </div>
       </section>
@@ -580,6 +582,9 @@ function App() {
         </div>
       </section>
       <section className="page" id="final-image-section">
+        <div id="final-image-wrapper">
+          <img alt="NA" data-scroll data-scroll-speed="-2" src="https://images.unsplash.com/photo-1484626753559-5fa3ea273ae8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        </div>
       </section>
       <Footer />
     </section>

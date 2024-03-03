@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { WordSplit } from "../App";
 import '../Styles/loading.css';
 import '../App.css';
 
 function Loading({ loading, setPageLoaded }) {
     const [pageLoaded, updatePageLoaded] = useState(!loading);
-    const [loadingAnimationsActive, updateLoadingAnimtionsActive] = useState(true);
     const loadingRef = useRef(null);
 
     console.log("actual loading = ", loading);
@@ -89,7 +87,7 @@ function Loading({ loading, setPageLoaded }) {
         // return () => {
         //     gsap.killTweensOf(splitWordLetters);
         // };
-    }, [loading]);
+    }, [loading, setPageLoaded, pageLoaded]);
 
 
     return (

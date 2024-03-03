@@ -209,7 +209,7 @@ section {
 #me-intro-section #me-intro-numbers .mini-heading-section .letter {
   font-size: 10vw;
   top: -50;
-  line-height: 0.8;
+  line-height: 1;
   font-weight: 300;
 }
 
@@ -366,6 +366,7 @@ section {
   display: flex;
   width: auto;
   align-items: center;
+  overflow: hidden;
 }
 
 #skills-section #skills-section-content-wrapper .split-word {
@@ -461,7 +462,7 @@ section {
 }
 
 #services-wrapper .service.show-service #service-content {
-  height: 20vh;
+  height: 30vh;
 }
 
 #services-wrapper .service #service-content ol {
@@ -479,7 +480,27 @@ section {
 }
 
 #final-image-section {
-  border: 2px solid red;
+  height: 60vh;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  overflow: hidden;
+}
+
+#final-image-wrapper{
+  box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+}
+
+#final-image-wrapper img{
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  top: 0;
 }
 
 
@@ -642,11 +663,16 @@ section {
   }
 
   #services-wrapper .service.show-service #service-heading {
-    padding: 0.3em;
+    padding: 1em 0.1em;
   }
 
   #services-wrapper .service.service.show-service #service-content {
-    height: 40vh;
+    height: 50vh;
+  }
+
+  #app #final-image-section #final-image-wrapper img{
+    height: 100vh;
+    width: auto;
   }
 
 }
