@@ -142,6 +142,8 @@
         margin: 0 5px;
     }
 
-
+    #footer-section #middle-right .social:hover img{
+        transform: translate(20%, 0);
+    }
     
 }

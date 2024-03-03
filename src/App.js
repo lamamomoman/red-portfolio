@@ -9,6 +9,9 @@ import prototype from './Icons/Prototype Animated Icons.gif';
 import code from './Icons/Code icons.gif';
 import truck from './Icons/Truck icon.gif';
 
+import mainBg from './project images/Red garment photo.jpg';
+import project1 from './project images/Red black abstract painting.jpg';
+
 
 import Loading from './Components/Loading';
 import Footer from './Components/Footer';
@@ -75,8 +78,8 @@ function App() {
     }, {
       top: enter ? 0 : 50,
       opacity: enter ? 1 : 0,
-      stagger: enter ? 0.05 : 0,
-      duration: 1,
+      stagger: enter ? 0.03 : 0,
+      duration: 0.4,
       ease: 'power4.inOut',
     });
 
@@ -194,12 +197,11 @@ function App() {
 
 
 
-  useLayoutEffect(() => {
-
+  useEffect(() => {
     window.onload = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 700);
     }
   });
 
@@ -208,21 +210,28 @@ function App() {
     if (pageLoaded && !animationsRun) { runAnimations() }
   });
 
+  // useEffect(() => {
+
+  //   window.onresize = () => {
+  //     if (window.innerHeight < "576px") {
+  //       updateForMobile(true);
+  //       console.log("forMobile=", forMobile);
+  //     }
+  //     else {
+  //       updateForMobile(false);
+  //       console.log("not for mobile", forMobile);
+  //     }
+  //   }
+  // }, [forMobile]);
+
   useEffect(() => {
 
-    window.onresize = () => {
-      if (window.innerHeight < "576px") {
-        updateForMobile(true);
-        console.log("forMobile=", forMobile);
-      }
-      else {
-        updateForMobile(false);
-        console.log("not for mobile", forMobile);
-      }
+
+    if (window.innerHeight < "576px") {
+      updateForMobile(true);
+      console.log("forMobile=", forMobile);
     }
-  }, [forMobile]);
 
-  useEffect(() => {
 
     const functionMapping = {
       fadeIn: fadeIn,
@@ -247,7 +256,7 @@ function App() {
         smartphone: {
           smooth: true,
         },
-        touchMultiplier: 8
+        touchMultiplier: 12
       });
 
       scroll.on('scroll', (args) => {
@@ -266,7 +275,7 @@ function App() {
       };
     }
 
-  }, [loading]);
+  }, [loading, forMobile]);
 
 
   return <section id="app" className={loading ? 'loading' : ''} >
@@ -277,7 +286,7 @@ function App() {
           {/* <div data-scroll data-scroll-speed={10} className="line"></div>
           <div data-scroll data-scroll-speed={-15} className="line"></div>
           <div data-scroll data-scroll-speed={20} className="line"></div> */}
-          <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src="https://images.unsplash.com/photo-1530128051436-3ab3663a4683?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+          <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src={mainBg} />
         </div>
         <div id="section-headings">
           <div id="main-section-headings">
@@ -334,7 +343,7 @@ function App() {
           <div data-scroll data-scroll-call="fadeInCards" data-scroll-offset={"50%"} id="project-windows-grid">
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img alt="NA" data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1606516170542-2a6a36ab1562?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8" />
+                <img alt="NA" data-scroll data-scroll-speed={-1} src={project1} />
               </div>
               <div id="project-window-content">
                 <h1>Book Exchange Club and Web API</h1>
@@ -343,7 +352,7 @@ function App() {
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img alt="NA" data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1618423771880-2bcfa6b67c89?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHJlZHxlbnwwfHwwfHx8MA%3D%3D" />
+                <img alt="NA" data-scroll data-scroll-speed={-1} src={project1} />
               </div>
               <div id="project-window-content">
                 <h1>The Biker Gang</h1>
@@ -352,7 +361,7 @@ function App() {
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img alt="NA" data-scroll data-scroll-speed={-1} src="https://images.unsplash.com/photo-1621257428217-852546ff30f5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D" />
+                <img alt="NA" data-scroll data-scroll-speed={-1} src={project1} />
               </div>
               <div id="project-window-content">
                 <h1>Anime Hub</h1>
