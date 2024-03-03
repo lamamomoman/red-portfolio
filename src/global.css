@@ -13,11 +13,12 @@
     --container-padding: 2em;
 
     --small-font-size: 17px;
+    --very-small-font-size: 14px;
     --large-font-size: 22px;
 
     --mob-regular-font-size: 16px;
-    --mob-large-font-size: 36px;
-    --mob-largest-font-size: 80px;
+    --mob-large-font-size: 9vw;
+    --mob-largest-font-size: 25vw;
 }
 
 body{

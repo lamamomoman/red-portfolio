@@ -6,6 +6,7 @@
 html.has-scroll-smooth {
   backface-visibility: hidden;
   transform: translateZ(0);
+  height: 100vh;
 }
 
 * h1 {
@@ -39,10 +40,10 @@ html.has-scroll-smooth {
 
 #app {
   box-sizing: border-box;
+  width: auto;
   height: auto;
-  width: 100vw;
   font-family: var(--font-family);
-  overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
 #app.loading {
@@ -106,7 +107,6 @@ section {
   opacity: 0;
   height: 100%;
   border-radius: 10px;
-  border: 5px solid red;
 }
 
 #first-page-section #first-page-image-section img {
@@ -177,60 +177,64 @@ section {
 #featured-projects-section #me-intro-section #me-intro-content h1 {
   font-size: var(--small-heading-size);
   width: 80%;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 
 #me-intro-section #me-intro-numbers {
   flex: 1;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  row-gap: 6em;
+  margin: 0 10em;
+  justify-content: center;
+  align-items: center;
 }
 
 #me-intro-section #me-intro-numbers .mini-heading-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   flex: 1;
   overflow: hidden;
 }
 
 #me-intro-section #me-intro-numbers .mini-heading-section p {
-  text-align: center;
+  text-align: left;
   width: 100%;
   font-weight: 500;
   font-size: var(--small-font-size);
 }
 
 #me-intro-section #me-intro-numbers .mini-heading-section .letter {
-  font-size: 6vw;
+  font-size: 10vw;
   top: -50;
+  line-height: 0.8;
   font-weight: 300;
 }
 
 #featured-projects-section #featured-projects-wrapper {
   height: 100vh;
-  margin: 10em 0 0 0;
+  margin: 10em 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 #featured-projects-section #featured-projects-wrapper .letter {
-  font-size: var(--small-heading-size);
+  font-size: var(--regular-heading-size);
   opacity: 0;
-  transform: skew(90deg);
 }
 
 #featured-projects-section #featured-projects-wrapper #project-wrapper-heading {
   overflow: hidden;
   display: flex;
   align-items: center;
-  margin-bottom: 5em;
 }
 
 #featured-projects-section #featured-projects-wrapper #project-wrapper-heading .split-word {
   overflow: hidden;
+  margin: 3em 0;
 }
 
 #featured-projects-wrapper #project-windows-grid {
@@ -306,7 +310,7 @@ section {
 
 
 #working-style .work-style-container {
-  margin: 3em 0 5em 0;
+  margin: 3em 0 0 0;
   display: flex;
   flex-direction: column;
 }
@@ -315,13 +319,12 @@ section {
   border-bottom: 0.5px solid red;
   opacity: 0.5;
   overflow: hidden;
-  padding: 0.6em 0;
+  padding: 0.2em 0;
 }
 
-#working-style .work-style-container #work-heading .letter {
+#working-style .work-style-container #work-heading h1 {
   font-size: var(--small-font-size);
-  margin: 0.5em 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
@@ -330,7 +333,7 @@ section {
   font-size: var(--large-font-size);
   width: auto;
   line-height: 1.4;
-  margin: 2em 0 0 55%;
+  margin: 0.2em 0 0 55%;
 }
 
 #working-style .work-style-container p img {
@@ -340,8 +343,7 @@ section {
 }
 
 #skills-section {
-  /* border: 2px solid red; */
-  margin: 0;
+  height: 100%;
 }
 
 #skills-section #skills-section-heading-wrapper {
@@ -364,13 +366,11 @@ section {
   display: flex;
   width: auto;
   align-items: center;
-  padding: 1em 0;
 }
 
 #skills-section #skills-section-content-wrapper .split-word {
   overflow: hidden;
 }
-
 
 #skills-section #skills-section-content-wrapper .letter {
   font-size: var(--small-heading-size);
@@ -378,31 +378,35 @@ section {
 }
 
 #skills-section #skills-section-content-wrapper img {
-  margin: 0 20px;
-  height: 10vh;
+  position: relative;
+  height: 15vh;
+  opacity: 0;
+  margin: 10px;
 }
 
 #services-section {
-  height: 100vh;
+  height: 100%;
 }
 
 #services-section-heading .split-word .letter {
   font-size: var(--large-font-size);
-  opacity: 0.5 !important;
+  opacity: 1 !important;
 }
 
 #services-section #services-section-content-wrapper {
   display: inline-flex;
   justify-content: space-between;
-  padding: 1em 0;
+  margin: 20px 0 0 0;
 }
 
 #services-section #services-section-content-wrapper>div {
-  flex: 0.4;
+  flex: 0.45;
 }
 
 #services-section-content p {
-  font-size: var(--small-font-size);
+  font-size: var(--large-font-size);
+  line-height: 1.4;
+  opacity: 0.4;
 }
 
 
@@ -416,45 +420,74 @@ section {
   align-items: center;
   padding: 0 0 1em 0;
   justify-content: space-between;
-  border-bottom: 2px solid red;
   pointer-events: none;
   color: black;
-  transition: color 0.6s ease-in-out,
+  border-bottom: 1px solid red;
+  transition: color 0.5s ease-in-out,
     padding 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 #services-wrapper .service #service-heading h1 {
   font-size: 3vw;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   opacity: 0;
+}
+
+.service #service-heading .plus {
+  transform: rotate(0deg);
+  transition: transform 0.6s cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
 
 #services-wrapper .service #service-content {
   height: 0vh;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  transition: height 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  justify-content: center;
+  border-bottom: 2px solid red;
+  transition: height 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 #services-wrapper .service #service-content p {
   font-size: var(--small-font-size);
-  padding: 2em 0;
+  line-height: 1.4;
+  padding: 1em 0;
+}
+
+.service.show-service #service-heading .plus {
+  transform: rotate(45deg);
 }
 
 #services-wrapper .service.show-service #service-content {
   height: 20vh;
 }
 
+#services-wrapper .service #service-content ol {
+  opacity: 0.5;
+}
+
+#services-wrapper .service #service-content ol li {
+  font-size: var(--small-font-size);
+  color: red;
+}
+
 #services-wrapper .service.show-service #service-heading {
   color: red;
-  padding: 0 3em 1em 3em;
+  padding: 0 6em 1em 6em;
+}
+
+#final-image-section {
+  border: 2px solid red;
 }
 
 
-
 @media screen and (max-width: 576px) {
+
+  #app section{
+    margin-bottom: 4em;
+  }
 
   #pages {
     padding: 0 1em;
@@ -500,6 +533,10 @@ section {
     font-size: var(--mob-regular-font-size);
   }
 
+  #featured-projects-section #featured-projects-wrapper{
+    margin: 4em 0;
+  }
+
   #featured-projects-section #me-intro-section #me-intro-content {
     margin: 4em 0;
   }
@@ -515,12 +552,17 @@ section {
     display: grid;
     grid-template-columns: 1fr;
     gap: 4em;
-    margin: 0px;
+    margin: 0;
+  }
+
+  #me-intro-section #me-intro-numbers .mini-heading-section {
+    align-items: flex-start;
   }
 
   #me-intro-section #me-intro-numbers .mini-heading-section p {
     font-size: 16px;
-    text-align: center;
+    margin: 20px 0 0 0;
+    text-align: left;
   }
 
   #me-intro-section #me-intro-numbers .mini-heading-section .letter {
@@ -529,6 +571,10 @@ section {
 
   #app #featured-projects-wrapper #project-wrapper-heading {
     margin-bottom: 2em;
+  }
+
+  #app #featured-projects-wrapper #project-wrapper-heading .split-word {
+    margin: 0;
   }
 
   #featured-projects-wrapper #project-wrapper-heading .letter {
@@ -553,8 +599,12 @@ section {
     font-size: var(--small-font-size);
   }
 
+  #working-style-section .work-style-container #work-heading h1 {
+    font-size: var(--very-small-font-size);
+  }
+
   #skills-section {
-    height: auto;
+    height: 100%;
   }
 
   #skills-section #skills-section-content-wrapper .skill-card {
@@ -569,6 +619,34 @@ section {
   #skills-section #skills-section-content-wrapper img {
     margin: 0 10px;
     height: 7vh;
+  }
+
+  #services-section #services-section-heading {
+    margin: 1em 0;
+  }
+
+  #services-section-content p {
+    font-size: var(--small-font-size);
+  }
+
+  #services-section #services-section-content-wrapper {
+    flex-direction: column;
+  }
+
+  #services-section-content-wrapper #services-wrapper {
+    margin: 3em 0;
+  }
+
+  #services-wrapper .service #service-heading h1 {
+    font-size: var(--mob-large-font-size);
+  }
+
+  #services-wrapper .service.show-service #service-heading {
+    padding: 0.3em;
+  }
+
+  #services-wrapper .service.service.show-service #service-content {
+    height: 40vh;
   }
 
 }
