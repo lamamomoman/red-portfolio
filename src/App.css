@@ -43,7 +43,7 @@ html.has-scroll-smooth {
   width: auto;
   height: auto;
   font-family: var(--font-family);
-  overflow-y: hidden !important;
+  overflow: hidden !important;
 }
 
 #app.loading {

@@ -12,13 +12,6 @@
     z-index: 4;
 }
 
-#loading-section h1{
-    font-size: var(--small-heading-size);
-    font-family: var(--font-family);
-    font-weight: var(--h1-font-weight);
-    color: rgba(255, 255, 255, 0.6);
-}
-
 #loading-section .split-word{
     width: 100%;
     box-sizing: border-box;
@@ -29,4 +22,10 @@
 
 #loading-section .split-word .letter{
     position: relative;
+}
+
+@media screen and (max-width: 576px) {
+    #loading-section .split-word{
+        font-size: var(--largest-heading-size);
+    }
 }

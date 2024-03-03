@@ -231,11 +231,12 @@ function App() {
       const scroll = new LocomotiveScroll({
         el: mainRef.current,
         smooth: true,
-        lerp: 0.1,
+        lerp: 0.1 ,
         multiplier: 0.2,
         smartphone: {
           smooth: true,
         },
+        touchMultiplier: 5
       });
 
       scroll.on('scroll', (args) => {
