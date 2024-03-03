@@ -199,7 +199,7 @@ function App() {
     window.onload = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 3000);
+      }, 1000);
     }
   });
 
@@ -207,6 +207,20 @@ function App() {
     let animationsRun;
     if (pageLoaded && !animationsRun) { runAnimations() }
   });
+
+  useEffect(() => {
+
+    window.onresize = () => {
+      if (window.innerHeight < "576px") {
+        updateForMobile(true);
+        console.log("forMobile=", forMobile);
+      }
+      else {
+        updateForMobile(false);
+        console.log("not for mobile", forMobile);
+      }
+    }
+  }, [forMobile]);
 
   useEffect(() => {
 
@@ -221,22 +235,19 @@ function App() {
       imgScrollAnim: imgScrollAnim
     }
 
-    if (window.innerHeight < "576px") {
-      updateForMobile(true);
-      console.log("forMobile=", forMobile);
-    }
+
 
     if (mainRef.current) {
 
       const scroll = new LocomotiveScroll({
         el: mainRef.current,
         smooth: true,
-        lerp: 0.1 ,
+        lerp: 0.1,
         multiplier: 0.2,
         smartphone: {
           smooth: true,
         },
-        touchMultiplier: 5
+        touchMultiplier: 8
       });
 
       scroll.on('scroll', (args) => {
@@ -255,7 +266,7 @@ function App() {
       };
     }
 
-  }, [loading, forMobile]);
+  }, [loading]);
 
 
   return <section id="app" className={loading ? 'loading' : ''} >
@@ -290,7 +301,7 @@ function App() {
         <div id="me-intro-section">
           <div data-scroll id="me-intro-content">
             <h1>Seasoned software developer crafting innovative
-              <span data-scroll-repeat={true} data-scroll-offset={"25%"} data-scroll data-scroll-call="changeRed" className='red'> digital solutions </span>,
+              <span data-scroll-repeat={true} data-scroll-offset={"25%"} data-scroll data-scroll-call="changeRed" className='red'> digital solutions</span>,
               from web pages to complex applications, embracing the journey of
               <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> code magic.</span></h1>
           </div>
@@ -353,8 +364,8 @@ function App() {
 
       </section>
       <section className="page" id="working-style-section">
-        <div id="work-style-heading" data-scroll data-scroll-call="letterScrollAnim">
-          <WordSplit animate={true}><h1>Explore,Invent,Enhance.</h1></WordSplit>
+        <div id="work-style-heading">
+          <h1 data-scroll-offset={"50%"} data-scroll data-scroll-call="fadeIn">Explore, Invent, Enhance.</h1>
         </div>
         <div id="working-style">
           <div className='work-style-container'>
@@ -373,7 +384,7 @@ function App() {
             </div>
             <p>
               <img alt="NA" src={prototype} /> <br></br>
-              In prototyping, I refine the user experience tirelessly. From concepts to <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> polished prototypes </span>, I strive for perfection, fine-tuning every detail. Through iteration, I transform visions into <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> intuitive interfaces </span> that resonate with users.
+              In prototyping, I refine the user experience tirelessly. From concepts to <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> polished prototypes</span>, I strive for perfection, fine-tuning every detail. Through iteration, I transform visions into <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> intuitive interfaces </span> that resonate with users.
             </p>
 
           </div>
@@ -396,7 +407,7 @@ function App() {
             <p>
               <img alt="NA" src={truck} /> <br></br>
 
-              Throughout development, I navigate <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> complexities with precision</span> .
+              Throughout development, I navigate <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> complexities with precision</span>.
               From concept to deployment, I commit to high-quality software that exceeds expectations.
               With agility, I ensure timely, <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> innovative solutions</span>  that enrich users' lives.
             </p>
