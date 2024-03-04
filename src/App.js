@@ -197,9 +197,6 @@ function App() {
     }, 700);
   }
 
-
-
-
   useEffect(() => {
     window.onload = () => {
       console.log("we Running");
@@ -209,26 +206,9 @@ function App() {
   });
 
   useEffect(() => {
+
     let animationsRun;
     if (pageLoaded && !animationsRun) { runAnimations() }
-  });
-
-  // useEffect(() => {
-
-  //   window.onresize = () => {
-  //     if (window.innerHeight < "576px") {
-  //       updateForMobile(true);
-  //       console.log("forMobile=", forMobile);
-  //     }
-  //     else {
-  //       updateForMobile(false);
-  //       console.log("not for mobile", forMobile);
-  //     }
-  //   }
-  // }, [forMobile]);
-
-  useEffect(() => {
-
 
     if (window.innerHeight < "576px") {
       updateForMobile(true);
@@ -259,6 +239,7 @@ function App() {
         smartphone: {
           smooth: true,
         },
+        touchMultiplier: 8,
       });
 
       scroll.on('scroll', (args) => {
@@ -277,18 +258,18 @@ function App() {
       };
     }
 
-  }, [loading, forMobile]);
+  }, [loading, forMobile, pageLoaded]);
 
 
   return <section onLoad={handleLoad} id="app" className={loading ? 'loading' : ''} >
     <Loading loading={loading} setPageLoaded={setPageLoaded} />
     <section data-scroll ref={mainRef} id="pages" >
       <section className="page" id="first-page-section">
-        <div data-scroll data-scroll-speed={3} id="first-page-image-section">
+        <div id="first-page-image-section">
           {/* <div data-scroll data-scroll-speed={10} className="line"></div>
           <div data-scroll data-scroll-speed={-15} className="line"></div>
           <div data-scroll data-scroll-speed={20} className="line"></div> */}
-          {/* <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src={mainBg} /> */}
+          <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src="https://images.unsplash.com/photo-1530128118208-89f6ce02b37b?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
         </div>
         <div data-scroll data-scroll-speed={-1} id="section-headings">
           <div id="main-section-headings">
@@ -342,36 +323,30 @@ function App() {
           <div id="project-wrapper-heading" data-scroll data-scroll-offset={"60%"} data-scroll-call="letterScrollAnim">
             <WordSplit animate={true}><h1>Featured Projects</h1></WordSplit>
           </div>
-          <div data-scroll data-scroll-call="fadeInCards" id="project-windows-grid">
+          <div data-scroll data-scroll-call="fadeInCards" data-scroll-offset={"50%"} id="project-windows-grid">
             <div className="project-window">
               <div id="project-image-wrapper">
-                <div data-scroll data-scroll-speed={-2} id="project-image">
-
-                </div>
+                <img alt="NA" src="https://images.unsplash.com/photo-1606516170542-2a6a36ab1562?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8" />
               </div>
-              <div id="project-window-content">
+              <div data-scroll data-scroll-speed={-0.2} id="project-window-content">
                 <h1>Book Exchange Club and Web API</h1>
                 <h1>UI/UX · MERN · Full Stack</h1>
               </div>
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <div data-scroll data-scroll-speed={-2} id="project-image">
-
-                </div>
+                <img alt="NA" src="https://images.unsplash.com/photo-1618423771880-2bcfa6b67c89?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHJlZHxlbnwwfHwwfHx8MA%3D%3D" />
               </div>
-              <div id="project-window-content">
+              <div data-scroll data-scroll-speed={-0.2} id="project-window-content">
                 <h1>The Biker Gang</h1>
                 <h1>UI/UX · Web Development . Database Design</h1>
               </div>
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <div data-scroll data-scroll-speed={-2} id="project-image">
-
-                </div>
+                <img alt="NA" src="https://images.unsplash.com/photo-1621257428217-852546ff30f5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D" />
               </div>
-              <div id="project-window-content">
+              <div data-scroll data-scroll-speed={-0.2} id="project-window-content">
                 <h1>Anime Hub</h1>
                 <h1>React · API  Integration · Front End Devlopment</h1>
               </div>
@@ -431,7 +406,7 @@ function App() {
           </div>
         </div>
       </section>
-      {/* <section className="page" id="skills-section">
+      <section className="page" id="skills-section">
         <div id="skills-section-heading-wrapper">
           <WordSplit><h1>Crafted Capabilities</h1></WordSplit>
         </div>
@@ -537,7 +512,7 @@ function App() {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png" alt="react" />
           </div>
         </div>
-      </section> */}
+      </section>
       <section className="page" id="services-section">
         <div id="services-section-heading">
           <WordSplit><h1>Strengths & Abilities</h1></WordSplit>
@@ -611,11 +586,8 @@ function App() {
         </div>
       </section>
       <section className="page" id="final-image-section">
-        <div data-scroll data-scroll-speed={-2} id="final-image-wrapper">
-          <div id="final-image">
-
-          </div>
-          {/* <img alt="NA" data-scroll data-scroll-speed="-2" src={finalImage} /> */}
+        <div id="final-image-wrapper">
+          <img alt="NA" data-scroll data-scroll-speed="-2" src="https://images.unsplash.com/photo-1484626753559-5fa3ea273ae8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
         </div>
       </section>
       <Footer />

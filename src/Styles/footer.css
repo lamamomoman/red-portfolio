@@ -1,12 +1,12 @@
 #footer-section {
     position: relative;
-    height: auto;
+    height: 50vh;
     width: 100%;
-    margin: 0 -2em;
+    margin: 2em -2em;
     left: 0;
     bottom: 0;
     background-color: black;
-    padding: 3em 2em 1em 2em;
+    padding: 3em 2em 2em 2em;
     font-family: var(--font-family);
     word-spacing: 2px;
 }

@@ -8,8 +8,6 @@ function Loading({ loading, setPageLoaded }) {
     const [pageLoaded, updatePageLoaded] = useState(!loading);
     const loadingRef = useRef(null);
 
-    console.log("actual loading = ", loading);
-
     useEffect(() => {
         console.log("----------page update----------");
         const loadingSection = loadingRef.current;
@@ -87,7 +85,7 @@ function Loading({ loading, setPageLoaded }) {
         // return () => {
         //     gsap.killTweensOf(splitWordLetters);
         // };
-    }, [loading, setPageLoaded, pageLoaded]);
+    }, [loading, setPageLoaded]);
 
 
     return (
