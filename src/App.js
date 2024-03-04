@@ -9,9 +9,6 @@ import prototype from './Icons/Prototype Animated Icons.gif';
 import code from './Icons/Code icons.gif';
 import truck from './Icons/Truck icon.gif';
 
-import mainBg from './project images/Red garment photo.jpg';
-import project1 from './project images/Red black abstract painting.jpg';
-
 
 import Loading from './Components/Loading';
 import Footer from './Components/Footer';
@@ -78,8 +75,8 @@ function App() {
     }, {
       top: enter ? 0 : 50,
       opacity: enter ? 1 : 0,
-      stagger: enter ? 0.03 : 0,
-      duration: 0.4,
+      stagger: enter ? 0.02 : 0,
+      duration: 0.7,
       ease: 'power4.inOut',
     });
 
@@ -128,7 +125,7 @@ function App() {
   const scaleOpacImage = (el) => {
     gsap.fromTo(el, {
       scale: 1.1,
-      opacity: 0.5,
+      opacity: 0,
     }, {
       scale: 1,
       opacity: 1,
@@ -169,7 +166,7 @@ function App() {
       gsap.fromTo(
         el.querySelectorAll('#service-heading .plus'),
         { opacity: 0, top: 100 },
-        { opacity: 1, top: 0, stagger: 0.15, duration: 0.4, }
+        { opacity: 1, top: 0, stagger: 0.1, duration: 0.3, }
       )
     );
     tl.add(gsap.fromTo(el.querySelectorAll("#service-heading .first-heading"),
@@ -180,8 +177,8 @@ function App() {
       {
         opacity: 1,
         top: 0,
-        stagger: 0.15,
-        duration: 0.4,
+        stagger: 0.1,
+        duration: 0.3,
       }));
   }
 
@@ -189,7 +186,7 @@ function App() {
   //initial animations, that run after the loading screen fades.
   const runAnimations = () => {
     letterAnim("#first-page-section .split-word .letter");
-    scaleOpacImage('#first-page-image-section img');
+    scaleOpacImage('#first-page-image-section');
     //lineAnim('.line');
     lineAnim('#first-page-section .mini-heading-section');
   }
@@ -256,7 +253,6 @@ function App() {
         smartphone: {
           smooth: true,
         },
-        touchMultiplier: 12
       });
 
       scroll.on('scroll', (args) => {
@@ -282,13 +278,13 @@ function App() {
     <Loading loading={loading} setPageLoaded={setPageLoaded} />
     <section data-scroll ref={mainRef} id="pages" >
       <section className="page" id="first-page-section">
-        <div id="first-page-image-section">
+        <div data-scroll data-scroll-speed={3} id="first-page-image-section">
           {/* <div data-scroll data-scroll-speed={10} className="line"></div>
           <div data-scroll data-scroll-speed={-15} className="line"></div>
           <div data-scroll data-scroll-speed={20} className="line"></div> */}
-          <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src={mainBg} />
+          {/* <img alt="NA" data-scroll-speed={-2} data-scroll data-scroll-call="lineAnim" src={mainBg} /> */}
         </div>
-        <div id="section-headings">
+        <div data-scroll data-scroll-speed={-1} id="section-headings">
           <div id="main-section-headings">
             <WordSplit><h1>RED [MANGO] APPLE</h1></WordSplit>
           </div>
@@ -314,7 +310,7 @@ function App() {
               from web pages to complex applications, embracing the journey of
               <span data-scroll data-scroll-offset={"40%"} data-scroll-repeat={true} data-scroll-call="changeRed" className="red"> code magic.</span></h1>
           </div>
-          <div data-scroll data-scroll-offset="30%, 60%" data-scroll-call="letterScrollAnim" id="me-intro-numbers">
+          <div data-scroll data-scroll-offset="30%" data-scroll-call="letterScrollAnim" id="me-intro-numbers">
             <div className="mini-heading-section">
               <WordSplit animate={true}><h1>15+</h1></WordSplit>
               <p>Project Completions</p>
@@ -340,10 +336,12 @@ function App() {
           <div id="project-wrapper-heading" data-scroll data-scroll-offset={"60%"} data-scroll-call="letterScrollAnim">
             <WordSplit animate={true}><h1>Featured Projects</h1></WordSplit>
           </div>
-          <div data-scroll data-scroll-call="fadeInCards" data-scroll-offset={"50%"} id="project-windows-grid">
+          <div data-scroll data-scroll-call="fadeInCards" id="project-windows-grid">
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img alt="NA" data-scroll data-scroll-speed={-1} src={project1} />
+                <div data-scroll data-scroll-speed={-2} id="project-image">
+
+                </div>
               </div>
               <div id="project-window-content">
                 <h1>Book Exchange Club and Web API</h1>
@@ -352,7 +350,9 @@ function App() {
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img alt="NA" data-scroll data-scroll-speed={-1} src={project1} />
+                <div data-scroll data-scroll-speed={-2} id="project-image">
+
+                </div>
               </div>
               <div id="project-window-content">
                 <h1>The Biker Gang</h1>
@@ -361,7 +361,9 @@ function App() {
             </div>
             <div className="project-window">
               <div id="project-image-wrapper">
-                <img alt="NA" data-scroll data-scroll-speed={-1} src={project1} />
+                <div data-scroll data-scroll-speed={-2} id="project-image">
+
+                </div>
               </div>
               <div id="project-window-content">
                 <h1>Anime Hub</h1>
@@ -603,8 +605,11 @@ function App() {
         </div>
       </section>
       <section className="page" id="final-image-section">
-        <div id="final-image-wrapper">
-          <img alt="NA" data-scroll data-scroll-speed="-2" src="https://images.unsplash.com/photo-1484626753559-5fa3ea273ae8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <div data-scroll data-scroll-speed={-2} id="final-image-wrapper">
+          <div id="final-image">
+
+          </div>
+          {/* <img alt="NA" data-scroll data-scroll-speed="-2" src={finalImage} /> */}
         </div>
       </section>
       <Footer />
