@@ -510,6 +510,7 @@ section {
   box-sizing: border-box;
   margin: 0 -2em;
   z-index: 0;
+  overflow: hidden;
 }
 
 #final-image-wrapper {
