@@ -191,14 +191,20 @@ function App() {
     lineAnim('#first-page-section .mini-heading-section');
   }
 
+  const handleLoad = () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 700);
+  }
 
 
 
-  useLayoutEffect(() => {
+
+  useEffect(() => {
     window.onload = () => {
-      setTimeout(() => {
-        setLoading(false);
-      }, 700);
+      console.log("we Running");
+
+
     }
   });
 
@@ -274,7 +280,7 @@ function App() {
   }, [loading, forMobile]);
 
 
-  return <section id="app" className={loading ? 'loading' : ''} >
+  return <section onLoad={handleLoad} id="app" className={loading ? 'loading' : ''} >
     <Loading loading={loading} setPageLoaded={setPageLoaded} />
     <section data-scroll ref={mainRef} id="pages" >
       <section className="page" id="first-page-section">
