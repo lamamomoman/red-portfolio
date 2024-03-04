@@ -425,7 +425,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="page" id="skills-section">
+      {/* <section className="page" id="skills-section">
         <div id="skills-section-heading-wrapper">
           <WordSplit><h1>Crafted Capabilities</h1></WordSplit>
         </div>
@@ -531,7 +531,7 @@ function App() {
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png" alt="react" />
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="page" id="services-section">
         <div id="services-section-heading">
           <WordSplit><h1>Strengths & Abilities</h1></WordSplit>
