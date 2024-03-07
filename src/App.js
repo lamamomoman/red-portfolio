@@ -237,9 +237,8 @@ function App() {
         lerp: 0.1,
         multiplier: 0.2,
         smartphone: {
-          smooth: true,
+          smooth: false,
         },
-        touchMultiplier: 8,
       });
 
       scroll.on('scroll', (args) => {

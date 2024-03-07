@@ -536,8 +536,9 @@ section {
     margin-bottom: 4em;
   }
 
-  #pages {
+  #app #pages {
     padding: 0 1em;
+    margin-bottom: 0;
   }
 
   #app #first-page-section #section-headings{
